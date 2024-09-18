@@ -1,0 +1,65 @@
+
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+$primary: #98d2de;
+$secondary: #9f83bd;
+$success: #8dacda;
+$warning: #F1FCFE;
+
+
+
+* {
+  font-family: "Arial Narrow", Arial, sans-serif;
+}
+
+.logo {
+  margin-bottom: -60px;
+}
+  
+ .navbar-nav .nav-item .nav-link {
+    letter-spacing: 0.1rem;
+  }
+  
+  .nav-tabs .nav-item .nav-link.active {
+    color: dark;
+    border-bottom: 0.25rem solid $secondary;
+  }
+  
+  .nav-tabs .nav-item .nav-link {
+    color: gray;
+    border: none;
+  }
+  
+  .nav .nav-item .nav-link {
+    letter-spacing: 0.1rem;
+  } 
+
+  @media (max-width: 991px) {
+    .navbar-toggler {
+      display: flex;
+      justify-content: end !important;   
+    }    
+  }
+
+  @media screen and (max-width: 400px) {
+    h2 {
+      font-size: 2em !important;     
+    }    
+  } 
+  
+  .nav-link:hover{
+    color: $secondary !important;
+  }
+  
+  .navbar-toggler:focus{
+    box-shadow: none;
+  } 
+ 
+  .social-icon:hover {
+    transform: scale(1.2);
+  }
+
+
+  
+
+ 
