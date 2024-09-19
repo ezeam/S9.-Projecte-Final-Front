@@ -1,21 +1,11 @@
-
-@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
-
-$primary: #98d2de;
-$secondary: #9f83bd;
-$success: #8dacda;
-$warning: #F1FCFE;
-
-html {
-  background-color: $primary;
-}
+@import '../../../styles.scss';
 
 * {
   font-family: "Arial Narrow", Arial, sans-serif;
 }
 
 body {
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 h2 {
@@ -26,144 +16,48 @@ h2 {
   padding: 0.2em;
 }
 
-.textoLogo {
-  font-family: "Satisfy";
-  font-size: 1.2em !important;
-  font-style: normal;
+.card .img-size {
+  width: 40%;
 }
 
-.logo {
-  margin-bottom: -60px;
+.carousel {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
 }
 
-//Dibujamos las formas azules que hay detrás de las imágenes
-  .blue-form-right {
-	  position: absolute;
-	  z-index: -1;
-	  width: 90%;
-	  height: 70%;
-	  top: 30%;
-	  left: 30%;
-    border-end-start-radius: 50em;
-  }
-  .blue-form-left {
-    position: absolute;
-	  z-index: -1;
-	  width: 90%;
-	  height: 95%;
-	  top: 25%;
-	  right: 25%;
-    border-bottom-right-radius: 50em;
-  } 
-  
- .navbar-nav .nav-item .nav-link {
-    letter-spacing: 0.1rem;
-  }
-  
-  .nav-tabs .nav-item .nav-link.active {
-    color: dark;
-    border-bottom: 0.25rem solid $secondary;
-  }
-  
-  .nav-tabs .nav-item .nav-link {
-    color: gray;
-    border: none;
-  }
-  
-  .nav .nav-item .nav-link {
-    letter-spacing: 0.1rem;
-  } 
+.carousel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
 
-  .card .img-size {
-    width: 40%;
-  }
+.carousel::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
 
-  .quick-contact {
-    background-color: $primary;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    padding: 0.5em;
-    text-align: center;
-    font-size: 0.9em;
-  }
+.carousel::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
-  .quick-contact a {
-    color: $secondary;   
+@media screen and (max-width: 400px) {
+  h2 {
+    font-size: 2em !important;
   }
+}
 
-  .carousel {
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #888 #f1f1f1;
-  }
-  
-  .carousel::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  .carousel::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 5px;
-  }
-    
-  .carousel::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+.btn-primary:hover { 
+  color: map-get($colors, 'primary') !important;
+  background-color: white !important;
+  border-color: map-get($colors, 'primary') !important;
+}
 
-  @media (max-width: 991px) {
-    .navbar-toggler {
-      display: flex;
-      justify-content: end !important;   
-    }    
-  }
+.accordion-button:hover {
+  color: map-get($colors, 'secondary') !important;
+}
 
-  @media screen and (max-width: 400px) {
-    h2 {
-      font-size: 2em !important;     
-    }    
-  } 
-
-  
-
-  .btn-primary:hover { 
-    color: $primary !important;
-    background-color: $body-bg !important;
-    border-color: $primary !important;
-  }
-  .btn-secondary:hover {
-    color: $secondary !important;
-    background-color: $warning !important;
-    border-color: $secondary !important;
-  }
-  .btn-light:hover {
-    color: $dark;
-    background-color: $body-bg;
-    border-color: $dark;
-  }
-  .nav-link:hover{
-    color: $secondary !important;
-  }
-  .accordion-button:hover{
-    color:  $secondary !important;
-  }
-  .navbar-toggler:focus{
-    box-shadow: none;
-  }
-  .list-group-item:hover{
-    color:  $secondary !important;
-  }
- 
-  .social-icon:hover {
-    transform: scale(1.2);
-  }
-
-  .fixed-card {
-    top: 20%;
-    width: 18rem;
-  }
+.list-group-item:hover {
+  color: map-get($colors, 'secondary') !important;
+}
 
   
 
