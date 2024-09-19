@@ -16,8 +16,23 @@ h2 {
   padding: 0.2em;
 }
 
+h3 {
+  color: map-get($theme-colors, "secondary");
+}
+
+
 .card .img-size {
   width: 40%;
+}
+
+.card {
+  border-color: map-get($theme-colors, "primary");
+  border-width: 1px; /* Puedes ajustar el grosor del borde si lo deseas */
+  border-style: solid;
+}
+
+.card-title{
+  color: map-get($theme-colors, "secondary");
 }
 
 .carousel {
@@ -55,9 +70,9 @@ h2 {
   color: map-get($colors, 'secondary') !important;
 }
 
-.list-group-item:hover {
-  color: map-get($colors, 'secondary') !important;
-}
+  .list-group-item:hover {
+    color: #9f83bd !important;
+  }
 
   
 
