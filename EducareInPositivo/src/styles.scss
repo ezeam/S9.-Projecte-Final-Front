@@ -9,3 +9,17 @@ $theme-colors: (
 );
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+* {
+  font-family: "Arial Narrow", Arial, sans-serif;
+}
+
+h3 {
+  color: map-get($theme-colors, "secondary");
+}
+
+.btn-primary:hover { 
+  color:map-get($theme-colors, "primary");
+  background-color: white;
+  border-color: map-get($colors, 'primary');
+}

@@ -5,7 +5,7 @@
       <img class="d-block d-lg-none" src="img/logo_def.svg" alt="EIP"  height="70">
     </a>
     <div class="col-3 d-flex align-items-center justify-content-start me-4">
-      <a class="navbar-brand ms-lg-1" href="https://www.educareinpositivo.com">          
+      <a class="navbar-brand ms-lg-1" routerLink="/home">          
           <span class="titulo fs-3">Educare in Positivo</span>
       </a>
   </div>
@@ -15,13 +15,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
         <li class="nav-item">
-          <a class="nav-link" href="./chi-sono.html">CHI SONO</a>
+          <a class="nav-link" role="button" routerLink="/chi-sono">CHI SONO</a>
         </li>           
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             SERVIZI
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu" role="button" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="./corso-educare-in-positivo.html">PER-CORSO “EDUCARE IN POSITIVO”</a></li>              
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="./corso-consulenza-personalizzata.html">SUPPORTO PERSONALIZZATO</a></li>              
@@ -30,7 +30,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./disciplina-positiva.html">DISCIPLINA POSITIVA</a>
+          <a class="nav-link" role="button" routerLink="/disciplina-positiva">DISCIPLINA POSITIVA</a>
         </li>
         <li class="lh-lg">
           <a class="nav-link d-inline pe-4" href="https://www.instagram.com/educareinpositivo/" target="_blank">
@@ -44,3 +44,4 @@
     </div>
   </div>
 </nav>
+<router-outlet></router-outlet>

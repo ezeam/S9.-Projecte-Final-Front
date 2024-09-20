@@ -1,24 +1,11 @@
 @import '../../../styles.scss';
 
-* {
-  font-family: "Arial Narrow", Arial, sans-serif;
-}
+
 
 body {
   overflow-x: hidden;
 }
 
-h2 {
-  font-family: "Satisfy", cursive;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 3em !important; 
-  padding: 0.2em;
-}
-
-h3 {
-  color: map-get($theme-colors, "secondary");
-}
 
 
 .card .img-size {
@@ -60,19 +47,13 @@ h3 {
   }
 }
 
-.btn-primary:hover { 
-  color: map-get($colors, 'primary') !important;
-  background-color: white !important;
-  border-color: map-get($colors, 'primary') !important;
-}
+
 
 .accordion-button:hover {
   color: map-get($colors, 'secondary') !important;
 }
 
-  .list-group-item:hover {
-    color: #9f83bd !important;
-  }
+
 
   
 
