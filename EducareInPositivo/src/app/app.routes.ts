@@ -5,6 +5,7 @@ import { DisciplinaPositivaComponent } from './components/disciplina-positiva/di
 import { PercorsoEducareComponent } from './components/percorso-educare/percorso-educare.component';
 import { SupportoPersonalizzatoComponent } from './components/supporto-personalizzato/supporto-personalizzato.component';
 import { WebinarComponent } from './components/webinar/webinar.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,4 +15,5 @@ export const routes: Routes = [
   { path: 'percorso-educare', component: PercorsoEducareComponent },
   { path: 'supporto-personalizzato', component: SupportoPersonalizzatoComponent },
   { path: 'webinar', component: WebinarComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent}
 ];
