@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-webinar',
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './webinar.component.html',
   styleUrl: './webinar.component.scss'
 })
-export class WebinarComponent {
-
+export class WebinarComponent implements OnInit {
+  ngOnInit():void {
+    window.scrollTo(0, 0);
+    }
 }
