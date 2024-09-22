@@ -1,0 +1,118 @@
+<div class="card container-fluid col-8 col-md-7 col-lg-5 col-xl-4 col-xxl-3 mt-5">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="mb-3">
+      <span class="d-flex justify-content-center mb-1">
+        <label htmlFor="inputNombre" class="form-label mt-4">Name</label>
+      </span>
+      <input
+        type="text"
+        class="form-control"
+        id="inputNombre"
+        formControlName="nombre"
+        [ngClass]="{
+          'is-invalid':
+            registerForm.get('nombre')?.invalid &&
+            registerForm.get('nombre')?.touched
+        }"
+      />
+      @if(registerForm.get('nombre')?.invalid &&
+      registerForm.get('nombre')?.touched) {
+      <div class="text-danger">
+        @if(registerForm.get('nombre')?.errors?.['required']) { First name is
+        required } @if(registerForm.get('nombre')?.errors?.['minlength']) { Must
+        be at least 3 characters long }
+        @if(registerForm.get('nombre')?.errors?.['pattern']) { Only letters are
+        allowed }
+      </div>
+      }
+    </div>
+    <div class="mb-3">
+      <span class="d-flex justify-content-center mb-1">
+        <label htmlFor="inputApellidos" class="form-label">Surname</label>
+      </span>
+      <input
+        type="text"
+        class="form-control"
+        id="inputApellidos"
+        formControlName="apellidos"
+        [ngClass]="{
+          'is-invalid':
+            registerForm.get('apellidos')?.invalid &&
+            registerForm.get('apellidos')?.touched
+        }"
+      />
+      @if(registerForm.get('apellidos')?.invalid &&
+      registerForm.get('apellidos')?.touched) {
+      <div class="text-danger">
+        @if(registerForm.get('apellidos')?.errors?.['required']) { Last name is
+        required } @if(registerForm.get('apellidos')?.errors?.['minlength']) {
+        Must be at least 3 characters long }
+        @if(registerForm.get('apellidos')?.errors?.['pattern']) { Only letters
+        are allowed }
+      </div>
+      }
+    </div>
+    <div class="mb-3">
+      <span class="d-flex justify-content-center mb-1">
+        <label htmlFor="inputEmail" class="form-label">Email</label>
+      </span>
+      <input
+        type="email"
+        class="form-control"
+        id="inputEmail"
+        formControlName="email"
+        [ngClass]="{
+          'is-invalid':
+            registerForm.get('email')?.invalid &&
+            registerForm.get('email')?.touched
+        }"
+      />
+      @if(registerForm.get('email')?.invalid &&
+      registerForm.get('email')?.touched) {
+      <div class="text-danger">
+        @if(registerForm.get('email')?.errors?.['required']) { Email is required
+        } @if(registerForm.get('email')?.errors?.['email']) { Email must have a
+        correct structure }
+      </div>
+      }
+    </div>
+    <div class="mb-3">
+      <span class="d-flex justify-content-center mb-1">
+        <label htmlFor="inputPassword" class="form-label">Password</label>
+      </span>
+      <input
+        type="password"
+        class="form-control"
+        id="inputPassword"
+        formControlName="password"
+        [ngClass]="{
+          'is-invalid':
+            registerForm.get('password')?.invalid &&
+            registerForm.get('password')?.touched
+        }"
+      />
+      @if(registerForm.get('password')?.invalid &&
+      registerForm.get('password')?.touched) {
+      <div class="text-danger">
+        @if(registerForm.get('password')?.errors?.['required']) { Password is
+        required } @if(registerForm.get('password')?.errors?.['minlength']) {
+        Must be at least 3 characters long }
+        @if(registerForm.get('password')?.errors?.['maxlength']) { Must have a
+        maximum of 8 characters }
+        @if(registerForm.get('password')?.errors?.['pattern']) { Must have at
+        least one uppercase letter and at least 1 number }
+      </div>
+      }
+    </div>    
+    <span class="d-flex justify-content-center mb-1">
+      <button type="submit" class="btn btn-light">Register</button>
+    </span>
+    @if(errorMessage){
+      <span class="d-flex justify-content-center mb-1">
+        <div class="text-danger">
+          {{ errorMessage }}
+        </div>
+      </span>      
+    }
+  </form>
+</div>

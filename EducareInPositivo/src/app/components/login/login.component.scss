@@ -1,0 +1,33 @@
+button {  
+  color: #9f83bd;
+  font-weight: 800;
+  font-size: large;
+}
+
+.card {
+  background-color: #F1FCFE;
+  color: #9f83bd;
+  min-height: 470px;
+}
+
+a {
+  color: #9f83bd;
+}
+
+.error {
+  color:#ff2b2b
+}
+
+button:hover {
+  color: #fff!important;
+  background-color:#98d2de ;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #fff!important;
+  background-color: #98d2de;
+  border-radius: 5px;
+  cursor: pointer;
+}

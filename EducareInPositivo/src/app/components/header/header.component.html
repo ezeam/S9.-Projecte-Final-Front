@@ -4,7 +4,7 @@
       <img class="d-none d-lg-block logo" src="img/logo_def.svg" alt="EIP" height="130">
       <img class="d-block d-lg-none" src="img/logo_def.svg" alt="EIP"  height="70">
     </a>
-    <div class="col-3 d-flex align-items-center justify-content-start me-4">
+    <div class="col-3 d-flex align-items-center justify-content-start me-5">
       <a class="navbar-brand ms-lg-1" routerLink="/home">          
           <span class="titulo fs-3">Educare in Positivo</span>
       </a>
@@ -15,10 +15,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
         <li class="nav-item">
-          <a class="nav-link" role="button" routerLink="/chi-sono">CHI SONO</a>
+          <a class="nav-link me-3" role="button" routerLink="/chi-sono">CHI SONO</a>
         </li>           
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle me-3" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             SERVIZI
           </a>
           <ul class="dropdown-menu" role="button" aria-labelledby="navbarDropdown">
@@ -30,7 +30,15 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" role="button" routerLink="/disciplina-positiva">DISCIPLINA POSITIVA</a>
+          <a class="nav-link me-3" role="button" routerLink="/disciplina-positiva">DISCIPLINA POSITIVA</a>
+        </li>
+        <li class="nav-item me-3">
+          @if(!(authenticationService.isLoggedIn$ | async)){     
+              <a class="nav-link" role="button" routerLink="/login">LOGIN</a>
+          } 
+          @if(authenticationService.isLoggedIn$ | async){            
+              <a class="nav-link" role="button" (click)="logOut()">LOGOUT</a>            
+          }  
         </li>
         <li class="lh-lg">
           <a class="nav-link d-inline pe-4" href="https://www.instagram.com/educareinpositivo/" target="_blank">
@@ -41,6 +49,7 @@
           </a>       
         </li>           
       </ul>
+      
     </div>
   </div>
 </nav>

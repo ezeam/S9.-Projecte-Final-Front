@@ -6,6 +6,8 @@ import { PercorsoEducareComponent } from './components/percorso-educare/percorso
 import { SupportoPersonalizzatoComponent } from './components/supporto-personalizzato/supporto-personalizzato.component';
 import { WebinarComponent } from './components/webinar/webinar.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -15,5 +17,7 @@ export const routes: Routes = [
   { path: 'percorso-educare', component: PercorsoEducareComponent },
   { path: 'supporto-personalizzato', component: SupportoPersonalizzatoComponent },
   { path: 'webinar', component: WebinarComponent },
-  { path: 'privacy-policy', component: PrivacyPolicyComponent}
+  { path: 'privacy-policy', component: PrivacyPolicyComponent}, 
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 ];

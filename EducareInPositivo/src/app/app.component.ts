@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
+import { GestioneClientiComponent } from './components/gestione-clienti/gestione-clienti.component';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
@@ -10,7 +11,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, HeaderComponent, FooterComponent],
+  imports: [RouterOutlet, HomeComponent, HeaderComponent, FooterComponent, GestioneClientiComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
