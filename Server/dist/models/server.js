@@ -19,6 +19,8 @@ const markerRoutes_1 = __importDefault(require("../routes/markerRoutes"));
 const connection_1 = __importDefault(require("../db/connection"));
 const eventRoutes_1 = __importDefault(require("../routes/eventRoutes"));
 const salesRoutes_1 = __importDefault(require("../routes/salesRoutes"));
+const userRoutes_1 = __importDefault(require("../routes/userRoutes")); // Asegúrate de que esta ruta es correcta
+const loginRoutes_1 = __importDefault(require("../routes/loginRoutes"));
 class Server {
     constructor() {
         console.log("PORT:", process.env.PORT);
@@ -44,11 +46,13 @@ class Server {
         this.app.use('/api/markers', markerRoutes_1.default);
         this.app.use('/api/events', eventRoutes_1.default);
         this.app.use('/api/sales', salesRoutes_1.default);
+        this.app.use('/api/users', userRoutes_1.default);
+        this.app.use('/api/users', loginRoutes_1.default); // Asegúrate de que esta ruta incluya el login
     }
     midlewares() {
-        //Parseamos el body, convertimos el json en un objeto
+        // Parseamos el body, convertimos el json en un objeto
         this.app.use(express_1.default.json());
-        //Cors:
+        // Cors:
         const corsOptions = {
             origin: 'http://localhost:4200', // Permite solo este origen
             credentials: true,

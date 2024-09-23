@@ -21,10 +21,10 @@ export class RegisterComponent {
     private router: Router
   ) {
     this.registerForm = this.fb.group({
-      nombre: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
-      apellidos: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
+      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
+      surname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8), Validators.pattern('(?=.*[A-Z]).{4,8}$')]]
+      password: ['', [Validators.required, Validators.minLength(4), Validators.pattern('(?=.*[A-Z]).{4,8}$')]]
     });
   }
 
@@ -42,8 +42,8 @@ export class RegisterComponent {
         this.errorMessage = '';
         this.router.navigate(['/']);
       },
-      error: (error) => {
-        this.errorMessage = 'Email already registered';
+      error: (error) => {        
+        this.errorMessage = error?.error?.msg 
         console.error('Registration error:', error);
       },
       complete: () => {

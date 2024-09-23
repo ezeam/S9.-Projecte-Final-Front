@@ -8,20 +8,20 @@
         type="text"
         class="form-control"
         id="inputNombre"
-        formControlName="nombre"
+        formControlName="name"
         [ngClass]="{
           'is-invalid':
-            registerForm.get('nombre')?.invalid &&
-            registerForm.get('nombre')?.touched
+            registerForm.get('name')?.invalid &&
+            registerForm.get('name')?.touched
         }"
       />
-      @if(registerForm.get('nombre')?.invalid &&
-      registerForm.get('nombre')?.touched) {
+      @if(registerForm.get('name')?.invalid &&
+      registerForm.get('name')?.touched) {
       <div class="text-danger">
-        @if(registerForm.get('nombre')?.errors?.['required']) { First name is
-        required } @if(registerForm.get('nombre')?.errors?.['minlength']) { Must
+        @if(registerForm.get('name')?.errors?.['required']) { First name is
+        required } @if(registerForm.get('name')?.errors?.['minlength']) { Must
         be at least 3 characters long }
-        @if(registerForm.get('nombre')?.errors?.['pattern']) { Only letters are
+        @if(registerForm.get('name')?.errors?.['pattern']) { Only letters are
         allowed }
       </div>
       }
@@ -34,20 +34,20 @@
         type="text"
         class="form-control"
         id="inputApellidos"
-        formControlName="apellidos"
+        formControlName="surname"
         [ngClass]="{
           'is-invalid':
-            registerForm.get('apellidos')?.invalid &&
-            registerForm.get('apellidos')?.touched
+            registerForm.get('surname')?.invalid &&
+            registerForm.get('surname')?.touched
         }"
       />
-      @if(registerForm.get('apellidos')?.invalid &&
-      registerForm.get('apellidos')?.touched) {
+      @if(registerForm.get('surname')?.invalid &&
+      registerForm.get('surname')?.touched) {
       <div class="text-danger">
-        @if(registerForm.get('apellidos')?.errors?.['required']) { Last name is
-        required } @if(registerForm.get('apellidos')?.errors?.['minlength']) {
+        @if(registerForm.get('surname')?.errors?.['required']) { Last name is
+        required } @if(registerForm.get('surname')?.errors?.['minlength']) {
         Must be at least 3 characters long }
-        @if(registerForm.get('apellidos')?.errors?.['pattern']) { Only letters
+        @if(registerForm.get('surname')?.errors?.['pattern']) { Only letters
         are allowed }
       </div>
       }

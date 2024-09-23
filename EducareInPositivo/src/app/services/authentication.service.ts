@@ -12,7 +12,10 @@ export class AuthenticationService {
 
   isLoggedIn$ = this.loggedIn.asObservable();
   username$ = this.username.asObservable();
-  
+
+  // Cambia la baseUrl para que incluya la ruta correcta
+  private baseUrl = 'http://localhost:3000/api/users';
+
   constructor(private http: HttpClient) {
     const token = localStorage.getItem('jwtToken');
     if (token) {
@@ -22,7 +25,7 @@ export class AuthenticationService {
   }
 
   login(credentials: any): Observable<boolean> {
-    return this.http.post<any>(`http://localhost:3000/login`, credentials).pipe(
+    return this.http.post<any>(`${this.baseUrl}/login`, credentials).pipe(
       map((response) => {
         this.jwtToken = response.accessToken;
         const username = response.user.username;
@@ -36,7 +39,7 @@ export class AuthenticationService {
   }  
 
   register(credentials: any): Observable<boolean> {
-    return this.http.post<any>(`http://localhost:3000/register`, credentials).pipe(
+    return this.http.post<any>(`${this.baseUrl}/register`, credentials).pipe( // Cambia aquí
       switchMap(() => this.login(credentials))
     );
   }

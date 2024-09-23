@@ -4,24 +4,25 @@ import routesCliente from '../routes/cliente';
 import routesMarker from '../routes/markerRoutes';
 import db from '../db/connection';
 import eventRoutes from '../routes/eventRoutes';
-import salesRoutes from '../routes/salesRoutes'
+import salesRoutes from '../routes/salesRoutes';
+import userRoutes from '../routes/userRoutes'; // Asegúrate de que esta ruta es correcta
+import loginRoutes from '../routes/loginRoutes';
 
 class Server {
   private app: Application;
   private port: string;
-  
 
   constructor() {
     console.log("PORT:", process.env.PORT);
     this.app = express();
-    this.port = process.env.PORT ||'3001';
+    this.port = process.env.PORT || '3001';
     this.listen();
     this.midlewares();
     this.routes();
     this.dbConnect();
   }
 
-  listen(){
+  listen() {
     this.app.listen(this.port, () => {
       console.log("Aplicación corriendo en el puerto", this.port);
     });
@@ -37,13 +38,15 @@ class Server {
     this.app.use('/api/markers', routesMarker);
     this.app.use('/api/events', eventRoutes);
     this.app.use('/api/sales', salesRoutes);
+    this.app.use('/api/users', userRoutes);
+    this.app.use('/api/users', loginRoutes); // Asegúrate de que esta ruta incluya el login
   }
 
   midlewares() {
-    //Parseamos el body, convertimos el json en un objeto
+    // Parseamos el body, convertimos el json en un objeto
     this.app.use(express.json());
 
-    //Cors:
+    // Cors:
     const corsOptions = {
       origin: 'http://localhost:4200', // Permite solo este origen
       credentials: true,
@@ -53,17 +56,14 @@ class Server {
   }
 
   async dbConnect() {
-
     try {
       await db.authenticate();
       console.log("Base de datos conectada");
-    }
-    catch(error){
+    } catch (error) {
       console.log(error);
       console.log("Error al conectar con la base de datos");
     }
-    
   }
-}  
+}
 
 export default Server;
