@@ -3,6 +3,9 @@ import cors from 'cors';
 import db from '../db/connection';
 import userRoutes from '../routes/userRoutes'; // Asegúrate de que esta ruta es correcta
 import loginRoutes from '../routes/loginRoutes';
+import orderRoutes from '../routes/orderRoutes';
+import paymentRoutes from '../routes/paymentRoutes';
+import serviceRoutes from '../routes/serviceRoutes';
 
 class Server {
   private app: Application;
@@ -31,7 +34,14 @@ class Server {
       });
     });
     this.app.use('/api/users', userRoutes);
-    this.app.use('/api/users', loginRoutes); // Asegúrate de que esta ruta incluya el login
+    this.app.use('/api/users', loginRoutes);
+    this.app.use('/api/orders', orderRoutes); // Asegúrate de importar orderRoutes
+
+  // Rutas de pagos
+  this.app.use('/api/payments', paymentRoutes); // Asegúrate de importar paymentRoutes
+  
+  // Rutas de servicios (si es necesario)
+  this.app.use('/api/services', serviceRoutes);
   }
 
   midlewares() {

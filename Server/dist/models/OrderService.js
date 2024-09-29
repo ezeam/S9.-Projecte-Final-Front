@@ -3,28 +3,28 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// models/OrderService.ts
 const sequelize_1 = require("sequelize");
 const connection_1 = __importDefault(require("../db/connection"));
-class Sale extends sequelize_1.Model {
+class OrderService extends sequelize_1.Model {
 }
-Sale.init({
-    id: {
+OrderService.init({
+    id_order_service: {
         type: sequelize_1.DataTypes.INTEGER,
+        primaryKey: true,
         autoIncrement: true,
-        primaryKey: true
     },
-    mes: {
-        type: sequelize_1.DataTypes.STRING,
-        allowNull: false
+    id_order: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: false,
     },
-    importe: {
-        type: sequelize_1.DataTypes.FLOAT,
-        allowNull: false
-    }
+    id_service: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: false,
+    },
 }, {
     sequelize: connection_1.default,
-    modelName: 'Sale',
-    tableName: 'sales',
-    timestamps: false
+    tableName: 'order_services',
+    timestamps: false,
 });
-exports.default = Sale;
+exports.default = OrderService;

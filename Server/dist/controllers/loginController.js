@@ -30,10 +30,10 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             return res.status(401).json({ msg: 'Unauthorized: Please check your credentials (user / password) or try again later' });
         }
         // Generar un token
-        const token = jsonwebtoken_1.default.sign({ id: user.id, email: user.email }, 'tu_clave_secreta', { expiresIn: '1h' });
+        const token = jsonwebtoken_1.default.sign({ id: user.id_user, email: user.email }, 'tu_clave_secreta', { expiresIn: '1h' });
         return res.json({
             accessToken: token,
-            user: { id: user.id, name: user.name, surname: user.surname, email: user.email },
+            user: { id: user.id_user, name: user.name, surname: user.surname, email: user.email },
         });
     }
     catch (error) {

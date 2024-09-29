@@ -21,11 +21,11 @@ export const loginUser = async (req: Request, res: Response) => {
     }
 
     // Generar un token
-    const token = jwt.sign({ id: user.id, email: user.email }, 'tu_clave_secreta', { expiresIn: '1h' });
+    const token = jwt.sign({ id: user.id_user, email: user.email }, 'tu_clave_secreta', { expiresIn: '1h' });
 
     return res.json({
       accessToken: token,
-      user: { id: user.id, name: user.name, surname: user.surname, email: user.email },
+      user: { id: user.id_user, name: user.name, surname: user.surname, email: user.email },
     });
   } catch (error) {
     console.error(error);

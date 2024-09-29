@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 declare var paypal: any; // Declarar PayPal globalmente
 
@@ -9,7 +11,12 @@ declare var paypal: any; // Declarar PayPal globalmente
 
 export class PaymentService {
 
-  constructor(private authenticationService: AuthenticationService) { }
+  private apiUrl = 'http://localhost:3000/api/services';
+
+  constructor(
+    private authenticationService: AuthenticationService,
+    private http: HttpClient 
+  ) { }
 
   handleButtonClick() {
     this.authenticationService.isLoggedIn$.subscribe(isLoggedIn => {
@@ -22,8 +29,7 @@ export class PaymentService {
   }
   
   redirectToLogin() {
-    // Redirige al usuario a la página de login
-    window.location.href = '/login'; // Cambia la ruta según tu configuración
+    window.location.href = '/login';
   }
 
   showPayPalButton() { // A ESTO SE LE PUEDEN PASAR PARAMETROS????
@@ -88,5 +94,9 @@ export class PaymentService {
 
       document.body.classList.remove('modal-open');
     }
+  }
+
+  getServicePrice(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
   }
 }

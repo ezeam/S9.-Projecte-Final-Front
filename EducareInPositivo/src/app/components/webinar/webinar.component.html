@@ -7,27 +7,30 @@
         <div class="col-12 col-md-8 text-center text-lg-start">
           <h5 class="mb-3">Webinar <u>lasciare il pannolino in modo rispettoso</u></h5>
           <p>Per molti bambini lasciare il pannolino è far fronte a qualcosa di sconosciuto, inesplorato. E’ andare incontro a una situazione che può fargli sperimentare mancanza di sicurezza, ma con questo webinar saprai come aiutare tu&#64; figli&#64;, accompagnandol&#64; durante il processo in modo rispettoso e sicuro. Avrai accesso a strumenti per evitare i principali errori che di solito si commettono e prevenire le difficoltà più importanti che possono sorgere durante il percorso.</p>
+          <p><strong>Prezzo:</strong> {{ pricePannolino !== null ? pricePannolino : 'Cargando...' }}€</p>
         </div>
         <div class="col-12 col-md-4 text-center">
-          <button class="btn btn-cta" type="button" (click)="showPayPalButton()" data-toggle="modal" data-target="#paypalModal">INSCRIVERMI pannolino</button>
+          <button class="btn btn-cta" type="button" (click)="handleButtonClick()">INSCRIVERMI pannolino</button>
         </div>
       </div>
       <div class="row mb-4">
         <div class="col-12 col-md-8 text-center text-lg-start">
           <h5 class="mb-3">Webinar <u>ambientamento sereno al nido e scuola dell’infanzia</u></h5>
           <p>Il momento del passaggio al nido o alla scuola dell’infanzia è per molti il primo vero distacco con la figura di riferimento, per questo è importante gestire in modo sereno questa importante tappa. Ascoltare le emozioni tanto del bambino quanto della mamma e aiutare a gestire il distacco in modo rispettoso e sereno sono gli obiettivi del webinar.</p>
+          <p><strong>Prezzo:</strong> {{ priceAmbientamento !== null ? priceAmbientamento : 'Cargando...' }}€</p>
         </div>
         <div class="col-12 col-md-4 text-center">
-          <button class="btn btn-cta" type="button" (click)="showPayPalButton()" data-toggle="modal" data-target="#paypalModal">INSCRIVERMI <span style="font-size: 15px;">ambientamento</span></button>
-        </div>
+          <button class="btn btn-cta" type="button" (click)="handleButtonClick()">INSCRIVERMI <span style="font-size: 15px;">ambientamento</span></button>
+        </div>        
       </div>
       <div class="row mb-4">
         <div class="col-12 col-md-8 text-center text-lg-start">
           <h5 class="mb-3">Webinar <u>non chiamateli capricci</u></h5>
           <p>I “capricci” non esistono, sono piuttosto una forma con cui il bambino piccolo ci comunica stress, stanchezza, rabbia e frustrazione. Imparerai a decifrare il codice con cui tu&#64; figli&#64; cerca di comunicare un bisogno, una necessità, un malessere.</p>
+          <p><strong>Prezzo:</strong> {{ priceCapricci !== null ? priceCapricci : 'Cargando...' }}€</p>
         </div>
         <div class="col-12 col-md-4 text-center">
-          <button class="btn btn-cta" type="button" (click)="showPayPalButton()" data-toggle="modal" data-target="#paypalModal">INSCRIVERMI capricci</button>
+          <button class="btn btn-cta" type="button" (click)="handleButtonClick()">INSCRIVERMI capricci</button>
         </div>
       </div>
     </div>
@@ -36,21 +39,6 @@
     </div>       
   </div>
 </section>
-<div class="modal fade" id="paypalModal" tabindex="-1" role="dialog" aria-labelledby="paypalModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="paypalModalLabel">Pagamento <strong>"Webinar"</strong></h5>
-      </div>
-      <div class="modal-header">
-        <h5 class="modal-title">Importo: 50€</h5>
-      </div>
-      <div class="modal-body">
-        <div id="paypal-button-container"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-      </div>
-    </div>
-  </div>
+<div>
+  <app-modal-paypal></app-modal-paypal>
 </div>

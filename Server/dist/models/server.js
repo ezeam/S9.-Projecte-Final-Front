@@ -17,6 +17,9 @@ const cors_1 = __importDefault(require("cors"));
 const connection_1 = __importDefault(require("../db/connection"));
 const userRoutes_1 = __importDefault(require("../routes/userRoutes")); // Asegúrate de que esta ruta es correcta
 const loginRoutes_1 = __importDefault(require("../routes/loginRoutes"));
+const orderRoutes_1 = __importDefault(require("../routes/orderRoutes"));
+const paymentRoutes_1 = __importDefault(require("../routes/paymentRoutes"));
+const serviceRoutes_1 = __importDefault(require("../routes/serviceRoutes"));
 class Server {
     constructor() {
         console.log("PORT:", process.env.PORT);
@@ -39,7 +42,12 @@ class Server {
             });
         });
         this.app.use('/api/users', userRoutes_1.default);
-        this.app.use('/api/users', loginRoutes_1.default); // Asegúrate de que esta ruta incluya el login
+        this.app.use('/api/users', loginRoutes_1.default);
+        this.app.use('/api/orders', orderRoutes_1.default); // Asegúrate de importar orderRoutes
+        // Rutas de pagos
+        this.app.use('/api/payments', paymentRoutes_1.default); // Asegúrate de importar paymentRoutes
+        // Rutas de servicios (si es necesario)
+        this.app.use('/api/services', serviceRoutes_1.default);
     }
     midlewares() {
         // Parseamos el body, convertimos el json en un objeto
