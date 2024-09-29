@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PaypalButtonComponent } from './paypal-button.component';
+import { ModalPaypalComponent } from './modal-paypal.component';
 
-describe('PaypalButtonComponent', () => {
-  let component: PaypalButtonComponent;
-  let fixture: ComponentFixture<PaypalButtonComponent>;
+describe('ModalPaypalComponent', () => {
+  let component: ModalPaypalComponent;
+  let fixture: ComponentFixture<ModalPaypalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PaypalButtonComponent]
+      imports: [ModalPaypalComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PaypalButtonComponent);
+    fixture = TestBed.createComponent(ModalPaypalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -14,11 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
-const cliente_1 = __importDefault(require("../routes/cliente"));
-const markerRoutes_1 = __importDefault(require("../routes/markerRoutes"));
 const connection_1 = __importDefault(require("../db/connection"));
-const eventRoutes_1 = __importDefault(require("../routes/eventRoutes"));
-const salesRoutes_1 = __importDefault(require("../routes/salesRoutes"));
 const userRoutes_1 = __importDefault(require("../routes/userRoutes")); // Asegúrate de que esta ruta es correcta
 const loginRoutes_1 = __importDefault(require("../routes/loginRoutes"));
 class Server {
@@ -42,10 +38,6 @@ class Server {
                 msg: 'API working'
             });
         });
-        this.app.use('/api/clientes', cliente_1.default);
-        this.app.use('/api/markers', markerRoutes_1.default);
-        this.app.use('/api/events', eventRoutes_1.default);
-        this.app.use('/api/sales', salesRoutes_1.default);
         this.app.use('/api/users', userRoutes_1.default);
         this.app.use('/api/users', loginRoutes_1.default); // Asegúrate de que esta ruta incluya el login
     }

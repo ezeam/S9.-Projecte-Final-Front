@@ -11,4 +11,3 @@ export interface Cliente {
 export interface ClienteResponse {
   cliente: Cliente;
 }
-

@@ -1,54 +1,51 @@
-<section class="container-xl" id="chi-sono">
-  <div class="row justify-content-center align-items-center pt-1 pb-4 mb-4 ms-lg-4">
-    <div class="col-12 col-lg-6 order-2 order-lg-1 text-center text-lg-start mb-5 mb-lg-0">
-      <h3 class="mb-3 mx-5 mx-lg-0 fw-bold">Supporto personalizzato</h3>
-     <!--<p>
-        Ti chiedi se stai prendendo le decisioni giuste con il tuo bambino?.Se lo stai accompagnando e sostenendo nel modo adeguato?. Hai la sensazione di camminare per sentieri impervi ed inesplorati senza bussola?. Io posso aiutarti, supportandoti nel viaggio.
-        <br>
-        Nella consulenza personalizzata ti ascolterò attivamente per comprendere a fondo la tua situazione e senza giudizio. Costruiremo insieme strategie per affrontare le tue specifiche sfide educative, concentrandoci su soluzioni pratiche e realizzabili.
-      </p>--> 
+<section class="container-xl mt-5" id="chi-sono">
+  <div class="row justify-content-center align-items-start pt-1 pb-4 mb-4">
+    <div class="col-12 col-lg-6 mb-5 text-center text-lg-start order-1 order-lg-1">
+      <h3 class="mb-3 fw-bold">Supporto personalizzato</h3>
       <p>
         <strong>Il servizio è perfetto per te se:</strong>
       </p>
-      <ul>         
-        <li>
-          Hai un bambino nell'età compresa tra 1 e 6 anni
-        </li>
-        <li>          
-          Senti la necessità di una guida professionale perchè hai la sensazione di camminare per sentieri impervi ed inesplorati senza bussola 
-        </li>
-        <li>
-          Hai bisogno di un aiuto nel gestire le difficoltà quotidiane 
-        </li>  
-        <li>          
-          Ti chiedi se stai prendendo le decisioni giuste con il tuo bambino.Se lo stai accompagnando e sostenendo nel modo adeguato
-        </li> 
-        <li>
-          Hai l’impressione di aver provato già tutto, ma senza successo
-        </li>
-        <li>
-          Hai già fatto il per-corso “educare in positivo” con me e hai bisogno di ri-focalizzare i tuoi obiettivi
-        </li>
-        <li>
-          Vuoi affrontare dubbi e difficoltà legate a tappe evolutive specifiche
-        </li>
+      <ul class="list-unstyled">
+        <li>Hai un bambino nell'età compresa tra 1 e 6 anni</li>
+        <li>Senti la necessità di una guida professionale perchè hai la sensazione di camminare per sentieri impervi ed inesplorati senza bussola</li>
+        <li>Hai bisogno di un aiuto nel gestire le difficoltà quotidiane</li>
+        <li>Ti chiedi se stai prendendo le decisioni giuste con il tuo bambino. Se lo stai accompagnando e sostenendo nel modo adeguato</li>
+        <li>Hai l’impressione di aver provato già tutto, ma senza successo</li>
+        <li>Hai già fatto il per-corso “educare in positivo” con me e hai bisogno di ri-focalizzare i tuoi obiettivi</li>
+        <li>Vuoi affrontare dubbi e difficoltà legate a tappe evolutive specifiche</li>
       </ul>
       <p><strong>Prenota una chiamata conoscitiva</strong></p>
-      <p>Se vuoi avere informazioni sul mio lavoro e su come posso aiutarti scrivimi una mail, pianificheremo una chiama conoscitiva gratuita della durata di 30 minuti.</p> 
-      <a class="nav-link mb-4 mb-lg-0 d-inline fw-bold" href="mailto:info@educareinpositivo.com">info&#64;educareinpositivo.com</a>       
-    </div>   
-    <div class="col-12 col-lg-6 order-2 order-lg-1 text-center text-lg-start mb-5 mb-lg-0">
-      <div class="d-none d-sm-block">
-        <div class="container mt-5 mb-5 d-flex justify-content-center">
-          <div class="card fixed-card bg-primary">
-            <div class="card-body">
-              <p class="card-text">Se desideri ricevere informazioni più dettagliate e il programma di uno o più webinar, inviami una mail, sarò felice di rispondere ad ogni domanda.</p>
-              <a class="nav-link mb-4 mb-lg-0 d-inline fw-bold" href="mailto:info@educareinpositivo.com">info&#64;educareinpositivo.com</a>
-            </div>
-          </div>
-        </div>
+      <p>Se vuoi avere informazioni sul mio lavoro e su come posso aiutarti scrivimi una mail, pianificheremo una chiamata conoscitiva gratuita della durata di 30 minuti.</p>
+      <a class="nav-link mb-4 mb-lg-0 d-inline fw-bold" href="mailto:info@educareinpositivo.com">info&#64;educareinpositivo.com</a>
+    </div>
+
+    <div class="col-12 col-lg-2 mb-5 text-center order-2 order-lg-2 d-flex align-items-center justify-content-center">
+      <div class="d-none d-sm-block ">
+        <button class="btn btn-cta" type="button" (click)="showPayPalButton()" data-toggle="modal" data-target="#paypalModal">INSCRIVERMI</button>
       </div>
+    </div>
+
+    <div class="col-12 col-lg-4 mb-5 text-center order-3 order-lg-3">
       <img class="img-fluid" src="img/appoggioAlleFamiglie.png" alt="educare in positivo" />
-    </div>       
+    </div>
   </div>
 </section>
+
+<div class="modal fade" id="paypalModal" tabindex="-1" role="dialog" aria-labelledby="paypalModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="paypalModalLabel">Pagamento <strong>"Supporto personalizzato"</strong></h5>
+      </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Importo: 70€</h5>
+      </div>
+      <div class="modal-body">
+        <div id="paypal-button-container"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
-import routesCliente from '../routes/cliente';
-import routesMarker from '../routes/markerRoutes';
 import db from '../db/connection';
-import eventRoutes from '../routes/eventRoutes';
-import salesRoutes from '../routes/salesRoutes';
 import userRoutes from '../routes/userRoutes'; // Asegúrate de que esta ruta es correcta
 import loginRoutes from '../routes/loginRoutes';
 
@@ -34,10 +30,6 @@ class Server {
         msg: 'API working'
       });
     });
-    this.app.use('/api/clientes', routesCliente);
-    this.app.use('/api/markers', routesMarker);
-    this.app.use('/api/events', eventRoutes);
-    this.app.use('/api/sales', salesRoutes);
     this.app.use('/api/users', userRoutes);
     this.app.use('/api/users', loginRoutes); // Asegúrate de que esta ruta incluya el login
   }

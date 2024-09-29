@@ -1,11 +1,11 @@
-<section class="container-xl mt-5" id="chi-sono">
-  <div class="row justify-content-center align-items-center pt-1 pb-4 mb-4 ms-lg-4">
-    <div class="col-12 col-lg-6 order-2 order-lg-1 text-center text-lg-start mb-5 mb-lg-0">
-      <h3 class="mb-3 mx-5 mx-lg-0 fw-bold">Percorso “educare in positivo”</h3>
+<section class="container-xl mt-5" id="per-corso-educare">
+  <div class="row justify-content-center align-items-start pt-1 pb-4 mb-4">
+    <div class="col-12 col-lg-6 mb-5 text-center text-lg-start order-1 order-lg-1">
+      <h3 class="mb-3 fw-bold">Percorso “educare in positivo”</h3>
       <p>
         <strong>Il per-corso è perfetto per te se:</strong>
       </p>
-      <ul>
+      <ul class="list-unstyled">
         <li>Sei genitore o caregiver di un bimbo in età compresa tra 2 e 6 anni.</li>
         <li>Vuoi imparare a capire il comportamento del tuo bambino.</li>
         <li>Senti la necessità di avere a disposizione strategie educative efficaci e concrete per affrontare le sfide quotidiane dell’essere genitori.</li>
@@ -15,39 +15,28 @@
         <li>Vuoi connetterti con i tuoi figli in modo autentico migliorando la vostra relazione e la qualità della comunicazione.</li>
         <li>Desideri vivere con consapevolezza il tuo ruolo di genitore.</li>
       </ul>
-      <p>Il per-corso è rivolto alle famiglie che desiderano condividere con altri genitori le loro esperienze, dubbi e incertezze. Che sentono il bisogno di una guida, un supporto. Che desiderano capire come poter gestire il carico e contemporaneamente continuare a godere di questi preziosi anni.<br>
-        Prevede attività esperienziali basate sui principi della <strong>Disciplina Positiva</strong>, grazie alle quali potrai praticare le abilità acquisite. Entrerai “nel mondo” del tuo bambino e comprenderai quello che sta pensando, sentendo e decidendo in base allo stile educativo che stai utilizzando.</p>
+      <p>
+        Il per-corso è rivolto alle famiglie che desiderano condividere con altri genitori le loro esperienze, dubbi e incertezze. Che sentono il bisogno di una guida, un supporto. Che desiderano capire come poter gestire il carico e contemporaneamente continuare a godere di questi preziosi anni.
+      </p>
+      <p>
+        Prevede attività esperienziali basate sui principi della <strong>Disciplina Positiva</strong>, grazie alle quali potrai praticare le abilità acquisite. Entrerai “nel mondo” del tuo bambino e comprenderai quello che sta pensando, sentendo e decidendo in base allo stile educativo che stai utilizzando.
+      </p>
       <p><strong>Pronto a iniziare?</strong></p>
       <p>Se vuoi avere informazioni rispetto alle modalità, costi e durata del per-corso, scrivimi una mail, sarò felice di rispondere a tutte le tue domande.</p>
-      <a class="nav-link mb-4 mb-lg-0 d-inline fw-bold" href="mailto:info@educareinpositivo.com">info&#64;educareinpositivo.com</a>
+      <a class="nav-link mb-4 fw-bold" href="mailto:info@educareinpositivo.com">info&#64;educareinpositivo.com</a>
     </div>
-    <div class="col-12 col-lg-6 order-2 order-lg-1 text-center text-lg-start mb-5 mb-lg-0">
+    <div class="col-12 col-lg-2 mb-5 text-center order-2 order-lg-2 d-flex align-items-center justify-content-center">
       <div class="d-none d-sm-block">
-        <div class="container mb-3 d-flex justify-content-start">
-          <button class="btn btn-cta" type="button" (click)="showPayPalButton()" data-toggle="modal" data-target="#paypalModal">INSCRIVERMI</button>
-        </div>
-      </div>
+        <button class="btn btn-cta" type="button" (click)="handleButtonClick()">INSCRIVERMI</button>
+      </div>      
+    </div>
+    <div class="col-12 col-lg-4 mb-5 text-center order-3 order-lg-3">
       <img class="img-fluid" src="img/corsoDiFormazione.png" alt="educare in positivo" />
     </div>
   </div>
+  <!-- modal -->
+  <div>
+    <app-modal-paypal></app-modal-paypal>
+  </div>
 </section>
 
-<!-- Modal -->
-<div class="modal fade" id="paypalModal" tabindex="-1" role="dialog" aria-labelledby="paypalModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="paypalModalLabel">Pagamento <strong>"Percorso Educare in Positivo"</strong></h5>
-      </div>
-      <div class="modal-header">
-        <h5 class="modal-title">Importo: 10€</h5>
-      </div>
-      <div class="modal-body">
-        <div id="paypal-button-container"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-      </div>
-    </div>
-  </div>
-</div>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
   <div class="container">
     <a class="navbar-brand">          
       <img class="d-none d-lg-block logo" src="img/logo_def.svg" alt="EIP" height="130">
@@ -13,16 +13,16 @@
       <span class="navbar-toggler-icon"></span>
     </button>  
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+      <ul class="navbar-nav ms-auto mb-lg-0" >
         <li class="nav-item">
-          <a class="nav-link me-3" role="button" routerLink="/home">HOME</a>
+          <a class="nav-link" role="button" routerLink="/home">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link me-3" role="button" routerLink="/chi-sono">CHI SONO</a>
+          <a class="nav-link" role="button" routerLink="/chi-sono">CHI SONO</a>
         </li>           
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle me-3" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            SERVIZI
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            SERVIZI 
           </a>
           <ul class="dropdown-menu" role="button" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" routerLink="percorso-educare">PER-CORSO “EDUCARE IN POSITIVO”</a></li>              
@@ -33,9 +33,9 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link me-3" role="button" routerLink="/disciplina-positiva">DISCIPLINA POSITIVA</a>
+          <a class="nav-link" role="button" routerLink="/disciplina-positiva">DISCIPLINA POSITIVA</a>
         </li>
-        <li class="nav-item me-3">
+        <li class="nav-item">
           @if(!(authenticationService.isLoggedIn$ | async)){     
               <a class="nav-link" role="button" routerLink="/login">LOGIN</a>
           } 
@@ -44,7 +44,7 @@
           }  
         </li>
         <li class="lh-lg">
-          <a class="nav-link d-inline pe-4" href="https://www.instagram.com/educareinpositivo/" target="_blank">
+          <a class="nav-link d-inline" href="https://www.instagram.com/educareinpositivo/" target="_blank">
             <img src="icon/icon-instagram.svg" alt="twitter-icon" height="25" class="social-icon">
           </a>    
           <a class="nav-link d-inline" href="https://es-la.facebook.com/nuni.nuni.5203577" target="_blank">

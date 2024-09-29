@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PaymentService } from '../../services/payment.service';
 
 @Component({
   selector: 'app-webinar',
@@ -8,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './webinar.component.scss'
 })
 export class WebinarComponent implements OnInit {
+
+  constructor(public paymentService: PaymentService) { }
+
   ngOnInit():void {
     window.scrollTo(0, 0);
     }
+  
+  showPayPalButton() {
+    this.paymentService.showPayPalButton();
+  }
 }

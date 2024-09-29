@@ -8,7 +8,7 @@ const connection_1 = __importDefault(require("../db/connection"));
 class User extends sequelize_1.Model {
 }
 User.init({
-    id: {
+    id_user: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,

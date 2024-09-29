@@ -3,6 +3,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,8 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
@@ -40,7 +42,9 @@ export class RegisterComponent {
     this.authenticationService.register(credentials).subscribe({
       next: () => {
         this.errorMessage = '';
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
+        this.location.back();
+        this.location.back();
       },
       error: (error) => {        
         this.errorMessage = error?.error?.msg 

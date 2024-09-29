@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';  
 import { Router, RouterLink } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
   isLoggedIn: boolean = false;
 
   constructor(private fb: FormBuilder,private authentication: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -44,7 +46,8 @@ export class LoginComponent implements OnInit {
     this.authentication.login(credentials).subscribe({
       next: () => {
         this.errorMessage = '';
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);        
+        this.location.back();
       },
       error: (error) => {
         this.errorMessage = error?.error?.msg;
@@ -52,6 +55,7 @@ export class LoginComponent implements OnInit {
       },
       complete: () => {
         console.log('Login observable completed');
+
       },
     });
   }

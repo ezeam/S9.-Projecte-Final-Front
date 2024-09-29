@@ -19,55 +19,54 @@ h3 {
 }
 
 .btn-cta {
-  position: fixed; /* Posición fija */
-  color: white; /* Texto en blanco para destacar sobre el fondo */
-  background-color: #98d2de; /* Fondo en color primario */
-  border-color: #98d2de; /* Borde en color primario para consistencia */
-  font-weight: bold; /* Texto en negrita para mayor énfasis */
-  font-size: 1.2rem; /* Tamaño de texto ligeramente mayor para mejorar la legibilidad */
-  padding: 0; /* Sin padding adicional para mantener el círculo */
-  border-radius: 50%; /* Bordes completamente redondeados para crear un botón circular */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera para profundidad */
-  text-transform: uppercase; /* Texto en mayúsculas para mayor impacto */
-  letter-spacing: 0.05em; /* Separación de letras para legibilidad */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave para futuras interacciones */
-  cursor: pointer; /* Cursor de mano para indicar interactividad */
-  width: 8em; /* Ancho fijo para mantener la forma redonda */
-  height: 8em; /* Altura fija para mantener la forma redonda */
-  animation: swing 1s infinite; /* Añadir animación de oscilación */
-  z-index: 1000; /* Asegurar que el botón esté encima de otros elementos */
-  top: 7em; /* Mover 10px hacia arriba */
-  left: 40em  ; /* Mover 10px hacia la izquierda */
+  position: relative; /* Cambiar a posición relativa */
+  color: white; 
+  background-color: #98d2de; 
+  border-color: #98d2de; 
+  font-weight: bold; 
+  font-size: 1.2rem; 
+  padding: 0; 
+  border-radius: 50%; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  text-transform: uppercase; 
+  letter-spacing: 0.05em; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+  cursor: pointer; 
+  width: 8em; 
+  height: 8em; 
+  animation: swing 1s infinite; 
+  z-index: 1000; /* Asegura que el botón esté encima de otros elementos */
   margin-bottom: 20px; /* Espacio inferior para el botón */
 }
 
-
+/* Cambios de color en hover */
 .btn-primary:hover { 
-  color:map-get($theme-colors, "primary");
+  color: map-get($theme-colors, "primary");
   background-color: white;
   border-color: map-get($colors, 'primary');
 }
 
 .btn-cta:hover { 
-  color: #98d2de; /* Color primario en el texto */
-  background-color: #F1FCFE; /* Color de fondo de advertencia para destacar */
-  border-color: #98d2de; /* Borde en color primario */
-  font-weight: bold; /* Para que el CTA tenga más impacto */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Añadir sombra para darle más relieve */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave en hover */
+  color: #98d2de; 
+  background-color: #F1FCFE; 
+  border-color: #98d2de; 
+  font-weight: bold; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 @keyframes swing {
   0% {
-    transform: rotate(0deg); /* Sin rotación */
+    transform: rotate(0deg); 
   }
   25% {
-    transform: rotate(5deg); /* Girar ligeramente hacia un lado */
+    transform: rotate(5deg); 
   }
   50% {
-    transform: rotate(-5deg); /* Girar ligeramente hacia el otro lado */
+    transform: rotate(-5deg); 
   }
   100% {
-    transform: rotate(0deg); /* Regresar a la posición inicial */
+    transform: rotate(0deg); 
   }
 }
+
