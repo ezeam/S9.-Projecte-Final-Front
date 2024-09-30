@@ -67,11 +67,11 @@ export class PaymentService {
     // Renderizar el botón de PayPal
     paypal.Buttons({
       createOrder: (data: any, actions: any) => {
+        console.log("Actions que llegan de paypal", actions);
         return actions.order.create({
           purchase_units: [{
             amount: {
               currency_code: 'EUR',
-              // value: '10.00' // Cambia esto al monto real de la inscripción
               value: price
             }
           }]
@@ -79,6 +79,7 @@ export class PaymentService {
       },
       onApprove: (data: any, actions: any) => {
         return actions.order.capture().then((details: any) => {
+          console.log("Details que llegan de paypal", details);
           alert('Transacción completada por ' + details.payer.name.given_name);
           // Aquí puedes manejar la lógica post-pago
         });

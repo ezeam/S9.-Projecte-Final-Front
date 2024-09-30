@@ -2,7 +2,7 @@
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
-        <label htmlFor="inputNombre" class="form-label mt-4">Name</label>
+        <label htmlFor="inputNombre" class="form-label mt-4">Nome</label>
       </span>
       <input
         type="text"
@@ -18,17 +18,15 @@
       @if(registerForm.get('name')?.invalid &&
       registerForm.get('name')?.touched) {
       <div class="text-danger">
-        @if(registerForm.get('name')?.errors?.['required']) { First name is
-        required } @if(registerForm.get('name')?.errors?.['minlength']) { Must
-        be at least 3 characters long }
-        @if(registerForm.get('name')?.errors?.['pattern']) { Only letters are
-        allowed }
+        @if(registerForm.get('name')?.errors?.['required']) { Il nome è obbligatorio } 
+        @if(registerForm.get('name')?.errors?.['minlength']) { Il nome Ddve essere lungo almeno 3 caratteri }
+        @if(registerForm.get('name')?.errors?.['pattern']) { Sono ammesse solo lettere}
       </div>
       }
     </div>
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
-        <label htmlFor="inputApellidos" class="form-label">Surname</label>
+        <label htmlFor="inputApellidos" class="form-label">Cognome</label>
       </span>
       <input
         type="text"
@@ -44,11 +42,9 @@
       @if(registerForm.get('surname')?.invalid &&
       registerForm.get('surname')?.touched) {
       <div class="text-danger">
-        @if(registerForm.get('surname')?.errors?.['required']) { Last name is
-        required } @if(registerForm.get('surname')?.errors?.['minlength']) {
-        Must be at least 3 characters long }
-        @if(registerForm.get('surname')?.errors?.['pattern']) { Only letters
-        are allowed }
+        @if(registerForm.get('surname')?.errors?.['required']) { Il cognome è obbligatorio } 
+        @if(registerForm.get('surname')?.errors?.['minlength']) { Il cognome Deve essere lungo almeno 3 caratteri }
+        @if(registerForm.get('surname')?.errors?.['pattern']) { Sono ammesse solo lettere }
       </div>
       }
     </div>
@@ -70,9 +66,8 @@
       @if(registerForm.get('email')?.invalid &&
       registerForm.get('email')?.touched) {
       <div class="text-danger">
-        @if(registerForm.get('email')?.errors?.['required']) { Email is required
-        } @if(registerForm.get('email')?.errors?.['email']) { Email must have a
-        correct structure }
+        @if(registerForm.get('email')?.errors?.['required']) { L'email è obbligatoria } 
+        @if(registerForm.get('email')?.errors?.['email']) { L'email deve avere una struttura corretta }
       </div>
       }
     </div>
@@ -94,18 +89,15 @@
       @if(registerForm.get('password')?.invalid &&
       registerForm.get('password')?.touched) {
       <div class="text-danger">
-        @if(registerForm.get('password')?.errors?.['required']) { Password is
-        required } @if(registerForm.get('password')?.errors?.['minlength']) {
-        Must be at least 3 characters long }
-        @if(registerForm.get('password')?.errors?.['maxlength']) { Must have a
-        maximum of 8 characters }
-        @if(registerForm.get('password')?.errors?.['pattern']) { Must have at
-        least one uppercase letter and at least 1 number }
+        @if(registerForm.get('password')?.errors?.['required']) { La password è obbligatoria }
+        @if(registerForm.get('password')?.errors?.['minlength']) {Deve essere lunga almeno 3 caratteri }
+        @if(registerForm.get('password')?.errors?.['maxlength']) { Deve avere un massimo di 8 caratteri }
+        @if(registerForm.get('password')?.errors?.['pattern']) { Deve contenere almeno una lettera maiuscola e almeno 1 numero }
       </div>
       }
     </div>    
     <span class="d-flex justify-content-center mb-1">
-      <button type="submit" class="btn btn-light">Register</button>
+      <button type="submit" class="btn btn-primary me-3 px-3 py-2 border-2 shadow-sm">Registrati</button>
     </span>
     @if(errorMessage){
       <span class="d-flex justify-content-center mb-1">
