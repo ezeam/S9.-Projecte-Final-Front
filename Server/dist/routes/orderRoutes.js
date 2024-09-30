@@ -5,16 +5,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // routes/orderRoutes.ts
 const express_1 = require("express");
-const OrderController_1 = __importDefault(require("../controllers/OrderController"));
+const orderController_1 = __importDefault(require("../controllers/orderController"));
 const router = (0, express_1.Router)();
 // Obtener todas las órdenes
-router.get('/', OrderController_1.default.getOrders);
+router.get('/', orderController_1.default.getOrders);
 // Crear una nueva orden
-router.post('/', OrderController_1.default.createOrder);
+router.post('/', orderController_1.default.createOrder);
 // Obtener una orden por ID
-router.get('/:id', OrderController_1.default.getOrderById);
+router.get('/:id', orderController_1.default.getOrderById);
 // Actualizar una orden
-router.put('/:id', OrderController_1.default.updateOrder);
+router.put('/:id', orderController_1.default.updateOrder);
 // Eliminar una orden
-router.delete('/:id', OrderController_1.default.deleteOrder);
+router.delete('/:id', orderController_1.default.deleteOrder);
 exports.default = router;

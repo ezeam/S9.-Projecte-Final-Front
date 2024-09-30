@@ -2,7 +2,7 @@
 import { Request, Response } from 'express';
 import Order from '../models/order';
 
-class OrderController {
+class orderController {
   // Obtener todas las órdenes
   public async getOrders(req: Request, res: Response) {
     try {
@@ -74,4 +74,4 @@ class OrderController {
   }
 }
 
-export default new OrderController();
+export default new orderController();

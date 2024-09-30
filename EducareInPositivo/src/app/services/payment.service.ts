@@ -11,6 +11,9 @@ declare var paypal: any; // Declarar PayPal globalmente
 
 export class PaymentService {
 
+  serviceName: string | null = null;  
+  servicePrice: number | null = null;  
+
   private apiUrl = 'http://localhost:3000/api/services';
 
   constructor(
@@ -18,10 +21,10 @@ export class PaymentService {
     private http: HttpClient 
   ) { }
 
-  handleButtonClick() {
+  handleButtonClick(name: string, price: number) {
     this.authenticationService.isLoggedIn$.subscribe(isLoggedIn => {
       if (isLoggedIn) {
-        this.showPayPalButton();
+        this.showPayPalButton(name, price);
       } else {
         this.redirectToLogin();
       }
@@ -32,7 +35,13 @@ export class PaymentService {
     window.location.href = '/login';
   }
 
-  showPayPalButton() { // A ESTO SE LE PUEDEN PASAR PARAMETROS????
+  showPayPalButton(name: string, price: number) { 
+
+    this.serviceName = name;
+    this.servicePrice = price;
+
+    console.log('this.serviceName ------->', this.serviceName)
+    console.log(' this.servicePrice ----->', this.servicePrice)
 
     //PINTAR el modal
     const modal = document.getElementById('paypalModal');
@@ -61,7 +70,9 @@ export class PaymentService {
         return actions.order.create({
           purchase_units: [{
             amount: {
-              value: '10.00' // Cambia esto al monto real de la inscripción
+              currency_code: 'EUR',
+              // value: '10.00' // Cambia esto al monto real de la inscripción
+              value: price
             }
           }]
         });
@@ -72,6 +83,7 @@ export class PaymentService {
           // Aquí puedes manejar la lógica post-pago
         });
       },
+
       onError: (err: any) => {
         console.error(err);
         alert('Ocurrió un error con el pago');
@@ -96,7 +108,7 @@ export class PaymentService {
     }
   }
 
-  getServicePrice(): Observable<any> {
+  getServiceData(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
 }

@@ -15,6 +15,7 @@ import { Service } from '../../interfaces/service';
 
 export class PercorsoEducareComponent implements OnInit {
 
+  name: string | null = null;
   price: number | null = null;
 
   constructor(
@@ -29,14 +30,15 @@ export class PercorsoEducareComponent implements OnInit {
   }
 
   loadPrice() {
-    this.paymentService.getServicePrice().subscribe(
-      (response: Service[]) => { // Asegúrate de que 'response' sea de tipo 'Service[]'
-        const servicioBuscado = response.find((servicio: Service) => servicio.id_service === 1); // Busca por id_service
+    this.paymentService.getServiceData().subscribe(
+      (response: Service[]) => {
+        const servicioBuscado = response.find((servicio: Service) => servicio.id_service === 1);
         if (servicioBuscado) {
-          this.price = servicioBuscado.price_service; // Asigna el precio del servicio encontrado
+          this.name = servicioBuscado.name_service;
+          this.price = servicioBuscado.price_service;
         } else {
           console.warn('Servicio con id_service 1 no encontrado.');
-          this.price = null; // Maneja este caso como prefieras
+          this.price = null;
         }
       },
       (error) => {
@@ -47,6 +49,9 @@ export class PercorsoEducareComponent implements OnInit {
 
 
   handleButtonClick(){
-    this.paymentService.handleButtonClick();
+    console.log('price percorso-educare:', this.name)
+    console.log('price percorso-educare:', this.price)
+ 
+    this.name && this.price && this.paymentService.handleButtonClick(this.name, this.price);
   }  
 }

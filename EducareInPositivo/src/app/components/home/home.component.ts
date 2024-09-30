@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomeChiSonoComponent } from "./home-chi-sono/home-chi-sono.component";
 import { HomeComePosoAiutartiComponent } from "./home-come-poso-aiutarti/home-come-poso-aiutarti.component";
 import { HomeDisciplinaPositivaComponent } from "./home-disciplina-positiva/home-disciplina-positiva.component";
@@ -13,13 +13,13 @@ import { RouterModule } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
+
+  ngOnInit():void {
+    window.scrollTo(0, 0);
+  }
   function () {
-
-    // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
     let forms = document.querySelectorAll('.needs-validation')
-
-    // Bucle sobre ellos y evitar el envío
     Array.prototype.slice.call(forms)
     .forEach(function (form) {
       form.addEventListener('submit', function (event: any) {
@@ -27,7 +27,6 @@ export class HomeComponent {
           event.preventDefault()
           event.stopPropagation()
         }
-
         form.classList.add('was-validated')
       }, false)
     })

@@ -12,6 +12,7 @@ import { Service } from '../../interfaces/service';
 })
 export class SupportoPersonalizzatoComponent implements OnInit{
 
+  name: string | null = null;
   price: number | null = null;
 
   constructor (public paymentService: PaymentService) { }
@@ -22,10 +23,11 @@ export class SupportoPersonalizzatoComponent implements OnInit{
   }
     
   loadPrice() {
-    this.paymentService.getServicePrice().subscribe(
+    this.paymentService.getServiceData().subscribe(
       (response: Service[]) => { // Asegúrate de que 'response' sea de tipo 'Service[]'
         const servicioBuscado = response.find((servicio: Service) => servicio.id_service === 2); // Busca por id_service
         if (servicioBuscado) {
+          this.name =  servicioBuscado.name_service;
           this.price = servicioBuscado.price_service; // Asigna el precio del servicio encontrado
         } else {
           console.warn('Servicio con id_service 2 no encontrado.');
@@ -39,6 +41,8 @@ export class SupportoPersonalizzatoComponent implements OnInit{
   }
 
   handleButtonClick(){
-    this.paymentService.handleButtonClick();
+    console.log('ESTE VIENE DEL TS - price Supporto personalizzto: ', this.price);
+
+    this.name && this.price && this.paymentService.handleButtonClick(this.name, this.price);
   } 
 }

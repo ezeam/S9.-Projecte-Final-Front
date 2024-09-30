@@ -17,6 +17,14 @@ export class ModalPaypalComponent {
     window.scrollTo(0, 0);
   }
 
+  getNameValue() {
+    return this.paymentService.serviceName;
+  }
+
+  getPriceValue() {
+    return this.paymentService.servicePrice;
+  }
+
   closeModal() {
     this.paymentService.closeModal();
   }

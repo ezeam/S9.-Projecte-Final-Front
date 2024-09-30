@@ -2,10 +2,10 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="paypalModalLabel">Pagamento <strong>"Percorso Educare in Positivo"</strong></h5>
+        <h5 class="modal-title" id="paypalModalLabel">Pagamento <strong>{{getNameValue()}}</strong></h5>
       </div>
       <div class="modal-header">
-        <h5 class="modal-title">Importo: 150€</h5>
+        <h5 class="modal-title">Importo: {{getPriceValue()}}€</h5>
       </div>
       <div class="modal-body">
         <div id="paypal-button-container"></div>

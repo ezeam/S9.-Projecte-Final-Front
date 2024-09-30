@@ -1,7 +1,9 @@
 <section class="container-xl mt-5" id="chi-sono">
   <div class="row justify-content-center align-items-start pt-1 pb-4 mb-4">
-    <div class="col-12 col-lg-6 mb-5 text-center text-lg-start order-1 order-lg-1">
-      <h3 class="mb-3 fw-bold">Supporto personalizzato</h3>
+    <div class="col-12 d-flex align-items-center justify-content-center mb-5">
+      <h3 class="mb-3 fw-bold">{{name}}</h3>
+    </div>
+    <div class="col-12 col-lg-6 mb-5 text-center text-lg-start order-1 order-lg-1">      
       <p>
         <strong>Il servizio è perfetto per te se:</strong>
       </p>
@@ -17,7 +19,8 @@
       <p><strong>Prenota una chiamata conoscitiva</strong></p>
       <p>Se vuoi avere informazioni sul mio lavoro e su come posso aiutarti scrivimi una mail, pianificheremo una chiamata conoscitiva gratuita della durata di 30 minuti.</p>
       <a class="nav-link mb-4 mb-lg-0 d-inline fw-bold" href="mailto:info@educareinpositivo.com">info&#64;educareinpositivo.com</a>
-      <p><strong>Prezzo:</strong> {{ price !== null ? price : 'Cargando...' }}€</p>
+      <br>
+      <p><strong>Prezzo:</strong> {{ price !== null ? price : 'Loading...' }}€</p>
     </div>
 
     <div class="col-12 col-lg-2 mb-5 text-center order-2 order-lg-2 d-flex align-items-center justify-content-center">
@@ -25,13 +28,11 @@
         <button class="btn btn-cta" type="button" (click)="handleButtonClick()">INSCRIVERMI</button>
       </div>
     </div>
-
     <div class="col-12 col-lg-4 mb-5 text-center order-3 order-lg-3">
       <img class="img-fluid" src="img/appoggioAlleFamiglie.png" alt="educare in positivo" />
     </div>
   </div>
 </section>
-<!-- modal -->
 <div>
   <app-modal-paypal></app-modal-paypal>
 </div>
