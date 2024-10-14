@@ -9,6 +9,8 @@ export class AuthenticationService {
   private loggedIn = new BehaviorSubject<boolean>(!!localStorage.getItem('jwtToken'));
   private jwtToken = '';
   private username = new BehaviorSubject<string>(localStorage.getItem('username') || '');
+  private userId!: string;
+  
 
   isLoggedIn$ = this.loggedIn.asObservable();
   username$ = this.username.asObservable();
@@ -29,10 +31,12 @@ export class AuthenticationService {
       map((response) => {
         this.jwtToken = response.accessToken;
         const username = response.user.username;
+        this.userId = response.user.id;
         this.loggedIn.next(true);
         this.username.next(username);
         localStorage.setItem('jwtToken', this.jwtToken);
         localStorage.setItem('username', username);
+        localStorage.setItem('userId', this.userId);
         return true;
       })
     );
@@ -56,4 +60,10 @@ export class AuthenticationService {
     this.username.next('');
     return false;
   }
+
+  getUserId(): string | null {
+    return localStorage.getItem('userId'); 
+  }
 }
+
+

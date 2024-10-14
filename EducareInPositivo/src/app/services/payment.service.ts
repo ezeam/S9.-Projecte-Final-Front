@@ -12,7 +12,9 @@ declare var paypal: any; // Declarar PayPal globalmente
 export class PaymentService {
 
   serviceName: string | null = null;  
-  servicePrice: number | null = null;  
+  servicePrice: number | null = null; 
+  serviceId: number | null = null;
+  
 
   private apiUrl = 'http://localhost:3000/api/services';
   private orderApiUrl = 'http://localhost:3000/api/orders'; // API para la creación de órdenes
@@ -38,10 +40,11 @@ export class PaymentService {
 
   // Función para crear la orden en tu base de datos antes de enviar a PayPal
   createOrder(name: string, price: number) {
+    const userId = this.authenticationService.getUserId();
     const orderData = {
       total_amount_order: price,
       payment_method: 'paypal',
-      user_id: 4,     
+      user_id: userId,     
       service_id: 1,   
       payment_status: "pending",
       external_order_id: null,
