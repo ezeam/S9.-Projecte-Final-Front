@@ -15,6 +15,7 @@ export class PaymentService {
   servicePrice: number | null = null;  
 
   private apiUrl = 'http://localhost:3000/api/services';
+  private orderApiUrl = 'http://localhost:3000/api/orders'; // API para la creación de órdenes
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -24,7 +25,7 @@ export class PaymentService {
   handleButtonClick(name: string, price: number) {
     this.authenticationService.isLoggedIn$.subscribe(isLoggedIn => {
       if (isLoggedIn) {
-        this.showPayPalButton(name, price);
+        this.createOrder(name, price); // Primero crea la orden en tu base de datos
       } else {
         this.redirectToLogin();
       }
@@ -35,13 +36,38 @@ export class PaymentService {
     window.location.href = '/login';
   }
 
-  showPayPalButton(name: string, price: number) { 
+  // Función para crear la orden en tu base de datos antes de enviar a PayPal
+  createOrder(name: string, price: number) {
+    const orderData = {
+      total_amount_order: price,
+      payment_method: 'paypal',
+      user_id: 4,     
+      service_id: 1,   
+      payment_status: "pending",
+      external_order_id: null,
+      external_transaction_id: null
+    };
+  
+    this.http.post(`http://localhost:3000/api/orders/create`, orderData).subscribe(
+      (response: any) => {
+        console.log('Orden creada en la base de datos:', response);
+        if (response && response.id_order) {
+          const orderId = response.id_order; 
+          this.showPayPalButton(name, price, orderId); 
+        } else {
+          console.error('La respuesta no contiene id_order:', response);
+        }
+      },
+      (error) => {
+        console.error('Error al crear la orden en la base de datos:', error);
+      }
+    );
+  }
+  
 
+  showPayPalButton(name: string, price: number, orderId: number) { 
     this.serviceName = name;
     this.servicePrice = price;
-
-    console.log('this.serviceName ------->', this.serviceName)
-    console.log(' this.servicePrice ----->', this.servicePrice)
 
     //PINTAR el modal
     const modal = document.getElementById('paypalModal');
@@ -54,7 +80,6 @@ export class PaymentService {
       const backdrop = document.createElement('div');
       backdrop.className = 'modal-backdrop fade show';
       document.body.appendChild(backdrop);
-   
       document.body.classList.add('modal-open');
     }
 
@@ -66,10 +91,10 @@ export class PaymentService {
 
     // Renderizar el botón de PayPal
     paypal.Buttons({
-      createOrder: (data: any, actions: any) => {
-        console.log("Actions que llegan de paypal", actions);
+      createOrder: (data: any, actions: any) => { //Este createorder es el de paypal, no la función que he creado yo
         return actions.order.create({
           purchase_units: [{
+            custom_id: orderId.toString(), // Aquí pasas el ID de la orden como reference_id
             amount: {
               currency_code: 'EUR',
               value: price
@@ -79,9 +104,13 @@ export class PaymentService {
       },
       onApprove: (data: any, actions: any) => {
         return actions.order.capture().then((details: any) => {
-          console.log("Details que llegan de paypal", details);
+          console.log("Detalles de la transacción:", details);
+          
+          const customId = details.purchase_units[0].custom_id;
+          // Aquí envías los detalles de la transacción para actualizar la orden en tu base de datos
+          this.updateOrderStatus(customId, details.id, details.status);
+          
           alert('Transacción completada por ' + details.payer.name.given_name);
-          // Aquí puedes manejar la lógica post-pago
         });
       },
 
@@ -90,6 +119,28 @@ export class PaymentService {
         alert('Ocurrió un error con el pago');
       }
     }).render('#paypal-button-container'); // Renderiza el botón en el contenedor del modal
+  }
+
+  // Función para actualizar el estado de la orden en el backend después del pago
+  updateOrderStatus(orderId: number, transactionId: string, paymentStatus: string) {
+    console.log('orderId ->', orderId);
+    console.log('transactionId ->', transactionId);
+    console.log('paymentStatus ->', paymentStatus);
+
+    const updateData = {
+      external_transaction_id: transactionId,
+      payment_status: paymentStatus
+    };
+
+    this.http.put(`${this.orderApiUrl}/${orderId}/update`, updateData).subscribe(
+      (response) => {
+        console.log('Orden actualizada en la base de datos:', response);
+      },
+      (error) => {
+        console.error('Error al actualizar la orden:', error);
+      }
+    );
+    this.closeModal();
   }
 
   closeModal() {
