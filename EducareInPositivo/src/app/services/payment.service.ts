@@ -24,10 +24,10 @@ export class PaymentService {
     private http: HttpClient 
   ) { }
 
-  handleButtonClick(name: string, price: number) {
+  handleButtonClick(name: string, price: number, serviceId: number) {
     this.authenticationService.isLoggedIn$.subscribe(isLoggedIn => {
       if (isLoggedIn) {
-        this.createOrder(name, price); // Primero crea la orden en tu base de datos
+        this.createOrder(name, price, serviceId); // Primero crea la orden en tu base de datos
       } else {
         this.redirectToLogin();
       }
@@ -39,13 +39,13 @@ export class PaymentService {
   }
 
   // Función para crear la orden en tu base de datos antes de enviar a PayPal
-  createOrder(name: string, price: number) {
+  createOrder(name: string, price: number, serviceId: number) {
     const userId = this.authenticationService.getUserId();
     const orderData = {
       total_amount_order: price,
       payment_method: 'paypal',
       user_id: userId,     
-      service_id: 1,   
+      service_id: serviceId,   
       payment_status: "pending",
       external_order_id: null,
       external_transaction_id: null

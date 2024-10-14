@@ -14,6 +14,7 @@ export class SupportoPersonalizzatoComponent implements OnInit{
 
   name: string | null = null;
   price: number | null = null;
+  serviceId: number = 2;
 
   constructor (public paymentService: PaymentService) { }
 
@@ -43,6 +44,6 @@ export class SupportoPersonalizzatoComponent implements OnInit{
   handleButtonClick(){
     console.log('ESTE VIENE DEL TS - price Supporto personalizzto: ', this.price);
 
-    this.name && this.price && this.paymentService.handleButtonClick(this.name, this.price);
+    this.name && this.price && this.paymentService.handleButtonClick(this.name, this.price, this.serviceId);
   } 
 }

@@ -17,6 +17,7 @@ export class PercorsoEducareComponent implements OnInit {
 
   name: string | null = null;
   price: number | null = null;
+  serviceId: number = 1;
 
   constructor(
     public paymentService: PaymentService, 
@@ -49,9 +50,8 @@ export class PercorsoEducareComponent implements OnInit {
 
 
   handleButtonClick(){
-    console.log('price percorso-educare:', this.name)
-    console.log('price percorso-educare:', this.price)
- 
-    this.name && this.price && this.paymentService.handleButtonClick(this.name, this.price);
+    if (this.name && this.price) {
+      this.paymentService.handleButtonClick(this.name, this.price, this.serviceId);
+    }
   }  
 }

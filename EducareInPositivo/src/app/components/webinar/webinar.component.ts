@@ -14,12 +14,15 @@ export class WebinarComponent implements OnInit {
 
   namePannolino: string | null = null;
   pricePannolino: number | null = null;
+  serviceIdPannolino: number = 3;
 
   nameAmbientamento: string | null = null;
   priceAmbientamento: number | null = null;
+  serviceIdAmbientamento: number = 4;
   
   nameCapricci: string | null = null;
   priceCapricci: number | null = null;
+  serviceIdCapricci: number = 5;
 
   constructor(public paymentService: PaymentService) { }
 
@@ -29,15 +32,15 @@ export class WebinarComponent implements OnInit {
     }
   
   handleButtonClickPannolino(){
-    this.namePannolino && this.pricePannolino && this.paymentService.handleButtonClick(this.namePannolino, this.pricePannolino);
+    this.namePannolino && this.pricePannolino && this.paymentService.handleButtonClick(this.namePannolino, this.pricePannolino, this.serviceIdPannolino);
   }
 
   handleButtonClickAmbientamento(){    
-    this.nameAmbientamento && this.priceAmbientamento && this.paymentService.handleButtonClick(this.nameAmbientamento, this.priceAmbientamento);
+    this.nameAmbientamento && this.priceAmbientamento && this.paymentService.handleButtonClick(this.nameAmbientamento, this.priceAmbientamento, this.serviceIdAmbientamento);
   }
 
   handleButtonClickCapricci(){    
-    this.nameCapricci && this.priceCapricci && this.paymentService.handleButtonClick(this.nameCapricci, this.priceCapricci);
+    this.nameCapricci && this.priceCapricci && this.paymentService.handleButtonClick(this.nameCapricci, this.priceCapricci, this.serviceIdCapricci);
   }
 
   loadPriceById(id: number): Promise<number | null> {
