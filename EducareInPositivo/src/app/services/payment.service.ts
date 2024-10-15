@@ -14,6 +14,7 @@ export class PaymentService {
   serviceName: string | null = null;  
   servicePrice: number | null = null; 
   serviceId: number | null = null;
+  orderId: number | null = null;
   
 
   private apiUrl = 'http://localhost:3000/api/services';
@@ -71,6 +72,7 @@ export class PaymentService {
   showPayPalButton(name: string, price: number, orderId: number) { 
     this.serviceName = name;
     this.servicePrice = price;
+    this.orderId = orderId;
 
     //PINTAR el modal
     const modal = document.getElementById('paypalModal');
@@ -126,11 +128,9 @@ export class PaymentService {
 
   // Función para actualizar el estado de la orden en el backend después del pago
   updateOrderStatus(orderId: number, transactionId: string, paymentStatus: string) {
-    console.log('orderId ->', orderId);
-    console.log('transactionId ->', transactionId);
-    console.log('paymentStatus ->', paymentStatus);
 
     const updateData = {
+      external_order_id: orderId,
       external_transaction_id: transactionId,
       payment_status: paymentStatus
     };

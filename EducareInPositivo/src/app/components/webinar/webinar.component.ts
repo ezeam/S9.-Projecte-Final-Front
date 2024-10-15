@@ -71,16 +71,15 @@ export class WebinarComponent implements OnInit {
           const service = response.find(service => service.id_service === id);
 
           if (service) {
-            console.log('service ->', service)
-            resolve(service.name_service); // Resuelve la promesa con el nombre???
+            resolve(service.name_service);
           } else {
             console.warn(`Servicio con id_service ${id} no encontrado.`);
-            resolve(null); // Resuelve con null si no se encuentra
+            resolve(null);
           }
         },
         (error) => {
           console.error('Error al cargar el precio:', error);
-          reject(error); // Rechaza la promesa en caso de error
+          reject(error);
         }
       );
     });
