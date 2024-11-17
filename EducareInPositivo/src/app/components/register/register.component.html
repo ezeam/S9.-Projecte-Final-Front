@@ -1,4 +1,4 @@
-<div class="card container-fluid col-8 col-md-7 col-lg-5 col-xl-4 col-xxl-3 mt-5">
+<div class="card container-fluid col-8 col-md-7 col-lg-5 col-xl-4 col-xxl-3 mt-5 mb-5">
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
@@ -19,7 +19,7 @@
       registerForm.get('name')?.touched) {
       <div class="text-danger">
         @if(registerForm.get('name')?.errors?.['required']) { Il nome è obbligatorio } 
-        @if(registerForm.get('name')?.errors?.['minlength']) { Il nome Ddve essere lungo almeno 3 caratteri }
+        @if(registerForm.get('name')?.errors?.['minlength']) { Il nome deve essere lungo almeno 3 caratteri }
         @if(registerForm.get('name')?.errors?.['pattern']) { Sono ammesse solo lettere}
       </div>
       }
@@ -43,8 +43,53 @@
       registerForm.get('surname')?.touched) {
       <div class="text-danger">
         @if(registerForm.get('surname')?.errors?.['required']) { Il cognome è obbligatorio } 
-        @if(registerForm.get('surname')?.errors?.['minlength']) { Il cognome Deve essere lungo almeno 3 caratteri }
+        @if(registerForm.get('surname')?.errors?.['minlength']) { Il cognome deve essere lungo almeno 3 caratteri }
         @if(registerForm.get('surname')?.errors?.['pattern']) { Sono ammesse solo lettere }
+      </div>
+      }
+    </div>
+    <div class="mb-3">
+      <span class="d-flex justify-content-center mb-1">
+        <label htmlFor="inputNombre" class="form-label mt-4">Carta d'Identità</label>
+      </span>
+      <input
+        type="text"
+        class="form-control"
+        id="inputDNI"
+        formControlName="dni"
+        [ngClass]="{
+          'is-invalid':
+            registerForm.get('dni')?.invalid &&
+            registerForm.get('dni')?.touched
+        }"
+      />
+      @if(registerForm.get('dni')?.invalid &&
+      registerForm.get('dni')?.touched) {
+      <div class="text-danger">
+        @if(registerForm.get('dni')?.errors?.['required']) { La carta d'identità è obbligatoria } 
+        @if(registerForm.get('dni')?.errors?.['minlength']) { La carta d'identit'a deve avere al meno 8 caratteri }
+      </div>
+      }
+    </div>
+    <div class="mb-3">
+      <span class="d-flex justify-content-center mb-1">
+        <label htmlFor="inputIndirizzo" class="form-label mt-4">Indirizzo</label>
+      </span>
+      <input
+        type="text"
+        class="form-control"
+        id="inputIndirizzo"
+        formControlName="address"
+        [ngClass]="{
+          'is-invalid':
+            registerForm.get('Indirizzo')?.invalid &&
+            registerForm.get('Indirizzo')?.touched
+        }"
+      />
+      @if(registerForm.get('Indirizzo')?.invalid &&
+      registerForm.get('Indirizzo')?.touched) {
+      <div class="text-danger">
+        @if(registerForm.get('Indirizzo')?.errors?.['required']) { L'indirizzo è obbligatorio }
       </div>
       }
     </div>
@@ -91,12 +136,11 @@
       <div class="text-danger">
         @if(registerForm.get('password')?.errors?.['required']) { La password è obbligatoria }
         @if(registerForm.get('password')?.errors?.['minlength']) {Deve essere lunga almeno 3 caratteri }
-        @if(registerForm.get('password')?.errors?.['maxlength']) { Deve avere un massimo di 8 caratteri }
         @if(registerForm.get('password')?.errors?.['pattern']) { Deve contenere almeno una lettera maiuscola e almeno 1 numero }
       </div>
       }
     </div>    
-    <span class="d-flex justify-content-center mb-1">
+    <span class="d-flex justify-content-center mb-3">
       <button type="submit" class="btn btn-primary me-3 px-3 py-2 border-2 shadow-sm">Registrati</button>
     </span>
     @if(errorMessage){

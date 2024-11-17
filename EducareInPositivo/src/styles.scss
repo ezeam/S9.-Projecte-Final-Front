@@ -35,8 +35,29 @@ h3 {
   width: 8em; 
   height: 8em; 
   animation: swing 1s infinite; 
-  z-index: 1000; /* Asegura que el botón esté encima de otros elementos */
-  margin-bottom: 20px; /* Espacio inferior para el botón */
+  z-index: 1000;
+  margin-bottom: 20px; 
+}
+
+.btn-ctaChiamata {
+  position: fixed; /* Cambiado a 'fixed' para que sea visible durante el scroll */
+  top: 20%; /* Posición inicial */
+  right: 20px; /* Espaciado desde el borde derecho */
+  color: white; 
+  background-color: #9f83bd; 
+  border: 0.2em solid #98d2de;
+  font-weight: bold; 
+  font-size: 1.2rem; 
+  padding: 0; 
+  border-radius: 50%; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  text-transform: uppercase; 
+  letter-spacing: 0.05em; 
+  transition: top 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; 
+  cursor: pointer; 
+  width: 9em; 
+  height: 9em; 
+  z-index: 1000;
 }
 
 /* Cambios de color en hover */
@@ -50,6 +71,15 @@ h3 {
   color: #98d2de; 
   background-color: #F1FCFE; 
   border-color: #98d2de; 
+  font-weight: bold; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.btn-ctaChiamata:hover { 
+  color: #9f83bd; 
+  background-color: #98d2de; 
+  border-color: #9f83bd; 
   font-weight: bold; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   transition: background-color 0.3s ease, color 0.3s ease; 

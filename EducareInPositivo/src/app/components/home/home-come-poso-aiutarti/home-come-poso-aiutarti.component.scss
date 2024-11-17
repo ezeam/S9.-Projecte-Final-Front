@@ -1,3 +1,12 @@
 h5 {
   color: #9f83bd;
 }
+
+a {
+  color: #9f83bd; /* Cambia el color de todos los enlaces */
+  text-decoration: none; /* Opcional: para quitar el subrayado */
+}
+
+a:hover {
+  color: #8dacda; /* Cambia el color al pasar el mouse (opcional) */
+}

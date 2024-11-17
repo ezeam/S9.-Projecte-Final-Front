@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-chi-sono',
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './chi-sono.component.html',
   styleUrl: './chi-sono.component.scss'
 })
-export class ChiSonoComponent {
-
+export class ChiSonoComponent implements OnInit {
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
+  }
 }
