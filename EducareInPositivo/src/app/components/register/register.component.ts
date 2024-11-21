@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Location } from '@angular/common';
 
+
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -15,6 +16,8 @@ import { Location } from '@angular/common';
 export class RegisterComponent {
   registerForm: FormGroup;
   errorMessage: string = '';
+  alertMessage: string = ''; // Mensaje dinámico de la alerta
+  showAlert: boolean = false; // Controla si mostrar la alerta
 
   constructor(
     private fb: FormBuilder,
@@ -41,6 +44,8 @@ export class RegisterComponent {
 
     const credentials = this.registerForm.value;
 
+    this.showSuccessAlert('Empezamos el registro chachi pistachi! :> '); 
+
     this.authenticationService.register(credentials).subscribe({
       next: () => {
         this.errorMessage = '';
@@ -53,8 +58,25 @@ export class RegisterComponent {
         console.error('Registration error:', error);
       },
       complete: () => {
+        // PONEMOS EL MENSAJE DE CONFIRMACIÓN QUE QUERAMOOS
         console.log('Registration observable completed');
+               
       },
     });
+  };
+
+  // crear esta función para pasar el mensaje
+  showSuccessAlert(message: string) {
+    this.alertMessage = message;
+    this.showAlert = true;
+  
+    // Opción para ocultar automáticamente la alerta
+    /*
+    setTimeout(() => {
+      this.showAlert = false;
+    }, 3000);
+    */
   }
+
 }
+

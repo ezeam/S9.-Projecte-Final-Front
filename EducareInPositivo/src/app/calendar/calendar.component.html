@@ -1,1 +1,25 @@
-<p>calendar works!</p>
+<section class="container-xl d-flex justify-content-center align-items-center flex-column m-5">
+  <div class="row w-100 justify-content-center align-items-stretch">
+    <!-- Card para el formulario de reserva -->
+    <div class="col-12 col-lg-6 event-details text-center mt-5 px-1 d-flex">
+      <div class="card mx-auto flex-fill">
+        <div class="card-body">
+          <h2>Videochiamata conoscitiva</h2>
+          <form (ngSubmit)="saveEvent()">
+            <!--Aqui vienen los botoncitos con las horas disponibles-->            
+            <button type="submit" class="btn btn-primary">Prenotare</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card para el calendario -->
+    <div class="col-12 col-lg-6 calendar-container text-center mt-5 px-1 d-flex">
+      <div class="card mx-auto flex-fill">
+        <div class="card-body">
+          <full-calendar [options]="calendarOptions"></full-calendar>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -8,6 +8,7 @@ import { WebinarComponent } from './components/webinar/webinar.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,4 +21,5 @@ export const routes: Routes = [
   { path: 'privacy-policy', component: PrivacyPolicyComponent}, 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'calendar', component: CalendarComponent },
 ];

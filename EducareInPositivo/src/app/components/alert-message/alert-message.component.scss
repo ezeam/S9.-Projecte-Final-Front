@@ -1,0 +1,9 @@
+.global-alert {
+  position: fixed; /* Fija la alerta en la pantalla */
+  top: 80px; /* Ajusta este valor según la altura del header */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1050; /* Asegura que esté encima del contenido */
+  width: 90%; /* Ajusta el ancho de la alerta */
+  max-width: 600px; /* Define un ancho máximo */
+}
