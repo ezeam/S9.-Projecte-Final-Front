@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HomeChiSonoComponent, HomeComePosoAiutartiComponent, HomeDisciplinaPositivaComponent, HomeDiconoDiMeComponent, ChiSonoComponent, RouterModule],
+  imports: [HomeChiSonoComponent, HomeComePosoAiutartiComponent, HomeDisciplinaPositivaComponent, HomeDiconoDiMeComponent, RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -30,5 +30,5 @@ export class HomeComponent implements OnInit{
         form.classList.add('was-validated')
       }, false)
     })
-    }
+  }
 }

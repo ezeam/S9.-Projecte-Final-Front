@@ -3,8 +3,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Location } from '@angular/common';
-
+import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'app-register',
@@ -15,15 +14,13 @@ import { Location } from '@angular/common';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
-  errorMessage: string = '';
-  alertMessage: string = ''; // Mensaje dinámico de la alerta
-  showAlert: boolean = false; // Controla si mostrar la alerta
+  errorMessage: string = '';  
 
   constructor(
     private fb: FormBuilder,
     private authenticationService: AuthenticationService,
+    private alertService: AlertService,
     private router: Router,
-    private location: Location
   ) {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
@@ -37,46 +34,34 @@ export class RegisterComponent {
 
   register() {
     if (this.registerForm.invalid) {
-      this.errorMessage = 'Please check all required fields';
+      this.errorMessage = 'Please check all required fields'; // TO-DO: Traducir al italiano  
       this.registerForm.markAllAsTouched();
       return;
     }
 
     const credentials = this.registerForm.value;
 
-    this.showSuccessAlert('Empezamos el registro chachi pistachi! :> '); 
-
     this.authenticationService.register(credentials).subscribe({
       next: () => {
-        this.errorMessage = '';
-        // this.router.navigate(['/']);
-        this.location.back();
-        this.location.back();
+        this.errorMessage = '';                
+        this.alertService.alertStatus = 'success';
+        this.alertService.alertMessage = 'Registrazione completata con successo.';        
+        this.router.navigate(['/home']);         
       },
-      error: (error) => {        
-        this.errorMessage = error?.error?.msg 
-        console.error('Registration error:', error);
-      },
+      error: (error) => {               
+        this.alertService.alertStatus = 'failed';
+        this.alertService.alertMessage = 
+          error?.error?.msg || 'Errore del server. Ci scusiamo per l’inconveniente, riprova più tardi.';
+        console.error('Registration error:', error?.error?.msg);
+        this.router.navigate(['/home']);        
+      },      
       complete: () => {
-        // PONEMOS EL MENSAJE DE CONFIRMACIÓN QUE QUERAMOOS
-        console.log('Registration observable completed');
-               
+        // console.log("alertStatus", this.alertService.alertStatus);
       },
     });
   };
 
-  // crear esta función para pasar el mensaje
-  showSuccessAlert(message: string) {
-    this.alertMessage = message;
-    this.showAlert = true;
   
-    // Opción para ocultar automáticamente la alerta
-    /*
-    setTimeout(() => {
-      this.showAlert = false;
-    }, 3000);
-    */
-  }
 
 }
 

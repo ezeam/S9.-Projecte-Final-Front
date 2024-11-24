@@ -17,7 +17,7 @@ export class PaymentService {
   orderId: number | null = null;
   
 
-  private apiUrl = 'http://localhost:3000/api/services';
+  private apiUrl = 'http://localhost:3000/api/services'; // TO-DO: Cambiar ruta cuando haya url/dominio/hosting
   private orderApiUrl = 'http://localhost:3000/api/orders'; // API para la creación de órdenes
 
   constructor(
@@ -68,7 +68,6 @@ export class PaymentService {
     );
   }
   
-
   showPayPalButton(name: string, price: number, orderId: number) { 
     this.serviceName = name;
     this.servicePrice = price;
@@ -115,13 +114,21 @@ export class PaymentService {
           // Aquí envías los detalles de la transacción para actualizar la orden en tu base de datos
           this.updateOrderStatus(customId, details.id, details.status);
           
-          alert('Transacción completada por ' + details.payer.name.given_name);
+          // alert('Transacción completada por ' + details.payer.name.given_name);
+          console.log('Ok transaccion');
+          // TO-DO: Redirijimos a algún sitio?
+          // TO-DO: Nos quedamos en la página de SERVICIOS ?
+
         });
       },
 
       onError: (err: any) => {
-        console.error(err);
-        alert('Ocurrió un error con el pago');
+        console.error('Error en el pago', err);
+        // alert('Ocurrió un error con el pago');
+
+        // TO-DO: Redirijimos a algún sitio?
+        // TO-DO: Nos quedamos en la página de SERVICIOS ?
+
       }
     }).render('#paypal-button-container'); // Renderiza el botón en el contenedor del modal
   }

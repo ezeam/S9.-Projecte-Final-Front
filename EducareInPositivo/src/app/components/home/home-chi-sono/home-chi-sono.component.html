@@ -22,4 +22,10 @@
       <img class="img-fluid" src="img/homePageDef.png" alt="photo Nunzia Martella">        
     </div>
   </div>
-</section>
+</section> 
+<app-alert-notification 
+  [alertStatus]="alertStatus"
+  [alertMessage]="alertMessage"
+  (alertClosed)="dismissAlert()"
+>
+</app-alert-notification>
