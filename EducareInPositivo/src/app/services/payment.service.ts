@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { AlertService } from './alert.service';
 
 declare var paypal: any; // Declarar PayPal globalmente
 
@@ -14,15 +16,16 @@ export class PaymentService {
   serviceName: string | null = null;  
   servicePrice: number | null = null; 
   serviceId: number | null = null;
-  orderId: number | null = null;
-  
+  orderId: number | null = null;  
 
   private apiUrl = 'http://localhost:3000/api/services'; // TO-DO: Cambiar ruta cuando haya url/dominio/hosting
   private orderApiUrl = 'http://localhost:3000/api/orders'; // API para la creación de órdenes
 
   constructor(
     private authenticationService: AuthenticationService,
-    private http: HttpClient 
+    private http: HttpClient,
+    private router: Router,
+    private alertService: AlertService,
   ) { }
 
   handleButtonClick(name: string, price: number, serviceId: number) {
@@ -114,21 +117,20 @@ export class PaymentService {
           // Aquí envías los detalles de la transacción para actualizar la orden en tu base de datos
           this.updateOrderStatus(customId, details.id, details.status);
           
-          // alert('Transacción completada por ' + details.payer.name.given_name);
-          console.log('Ok transaccion');
-          // TO-DO: Redirijimos a algún sitio?
-          // TO-DO: Nos quedamos en la página de SERVICIOS ?
+          console.log(`transaccion. Transacción completada por ${details.payer.name.given_name}`);
 
+          this.alertService.alertStatus = 'success';
+          this.alertService.alertMessage = 'Pagamento correctto. Grazie per aver effettuato il suo acquisto.';
+          this.router.navigate(['/home']); // TO-DO: Poner el nombre del curso comprado
         });
       },
-
       onError: (err: any) => {
         console.error('Error en el pago', err);
-        // alert('Ocurrió un error con el pago');
 
-        // TO-DO: Redirijimos a algún sitio?
-        // TO-DO: Nos quedamos en la página de SERVICIOS ?
-
+        this.alertService.alertStatus = 'failed';
+        this.alertService.alertMessage = 'Errore nel pagamento. La preghiamo di riprovare più tardi.';
+        this.router.navigate(['/home']);        
+        // TO-DO: Redirijimos a la página de SERVICIOS (cuando esté todo unificado en la misma)
       }
     }).render('#paypal-button-container'); // Renderiza el botón en el contenedor del modal
   }
