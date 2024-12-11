@@ -1,4 +1,26 @@
+$theme-colors: (
+  "primary": #98d2de,
+  "secondary": #9f83bd,
+  "success": #8dacda,
+  "warning": #F1FCFE
+);
+
 .fixed-card {
   top: 20%;
   width: 18rem;
+}
+
+h1{
+  color: map-get($theme-colors, "secondary");
+  font-size: 28px;
+}
+
+h2{
+  color: map-get($theme-colors, "secondary");
+  font-size: 28px;
+}
+
+.subtitulo{
+  color: map-get($theme-colors, "success");
+  font-size: 28px;
 }

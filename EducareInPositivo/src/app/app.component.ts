@@ -7,7 +7,6 @@ import { GestioneClientiComponent } from './components/gestione-clienti/gestione
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { FullCalendarModule } from '@fullcalendar/angular';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,

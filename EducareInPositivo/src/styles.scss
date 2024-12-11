@@ -13,8 +13,9 @@ $theme-colors: (
   font-family: "Arial Narrow", Arial, sans-serif;
 }
 
-h3 {
+h2 {
   color: map-get($theme-colors, "secondary");
+  font-size: 28px;
 }
 
 .btn-cta {
