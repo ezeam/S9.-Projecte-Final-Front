@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, switchMap } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class AuthenticationService {
   username$ = this.username.asObservable();
 
   // Cambia la baseUrl para que incluya la ruta correcta
-  private baseUrl = 'http://localhost:3000/api/users';
+  private baseUrl = `${environment.endpoint}/api/users`;
 
   constructor(private http: HttpClient) {
     const token = localStorage.getItem('jwtToken');

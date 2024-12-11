@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AlertService } from './alert.service';
+import { environment } from '../environments/environment';
 
 declare var paypal: any; // Declarar PayPal globalmente
 
@@ -18,8 +19,8 @@ export class PaymentService {
   serviceId: number | null = null;
   orderId: number | null = null;  
 
-  private apiUrl = 'http://localhost:3000/api/services'; // TO-DO: Cambiar ruta cuando haya url/dominio/hosting
-  private orderApiUrl = 'http://localhost:3000/api/orders'; // API para la creación de órdenes
+  private apiUrl = `${environment.endpoint}/api/services`; // TO-DO: Cambiar ruta cuando haya url/dominio/hosting
+  private orderApiUrl = `${environment.endpoint}/api/orders`; // API para la creación de órdenes
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -55,7 +56,7 @@ export class PaymentService {
       external_transaction_id: null
     };
   
-    this.http.post(`http://localhost:3000/api/orders/create`, orderData).subscribe(
+    this.http.post(`${environment.endpoint}/api/orders/create`, orderData).subscribe(
       (response: any) => {
         console.log('Orden creada en la base de datos:', response);
         if (response && response.id_order) {
@@ -121,7 +122,7 @@ export class PaymentService {
 
           this.alertService.alertStatus = 'success';
           this.alertService.alertMessage = 'Pagamento correctto. Grazie per aver effettuato il suo acquisto.';
-          this.router.navigate(['/home']); // TO-DO: Poner el nombre del curso comprado
+          this.router.navigate(['/']); // TO-DO: Poner el nombre del curso comprado
         });
       },
       onError: (err: any) => {
@@ -129,7 +130,7 @@ export class PaymentService {
 
         this.alertService.alertStatus = 'failed';
         this.alertService.alertMessage = 'Errore nel pagamento. La preghiamo di riprovare più tardi.';
-        this.router.navigate(['/home']);        
+        this.router.navigate(['/']);        
         // TO-DO: Redirijimos a la página de SERVICIOS (cuando esté todo unificado en la misma)
       }
     }).render('#paypal-button-container'); // Renderiza el botón en el contenedor del modal

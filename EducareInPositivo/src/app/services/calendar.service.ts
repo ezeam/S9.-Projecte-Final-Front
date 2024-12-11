@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { enviroment } from '../enviroments/enviroment';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalendarService {
-  private apiUrl = `${enviroment.endpoint.replace(/\/$/, '')}/api/appointments`;
+  private apiUrl = `${environment.endpoint.replace(/\/$/, '')}/api/appointments`;
 
   constructor(private http: HttpClient) {}
 

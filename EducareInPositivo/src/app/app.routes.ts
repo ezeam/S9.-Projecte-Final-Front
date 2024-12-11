@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CalendarComponent } from './calendar/calendar.component';
 
+/*
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -19,6 +20,21 @@ export const routes: Routes = [
   { path: 'supporto-personalizzato', component: SupportoPersonalizzatoComponent },
   { path: 'webinar', component: WebinarComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent}, 
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'calendar', component: CalendarComponent },
+];
+*/
+
+export const routes: Routes = [
+  // { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '', component: HomeComponent },  // Carga el HomeComponent en la raíz
+  { path: 'chi-sono', component: ChiSonoComponent },
+  { path: 'disciplina-positiva', component: DisciplinaPositivaComponent },
+  { path: 'percorso-educare', component: PercorsoEducareComponent },
+  { path: 'supporto-personalizzato', component: SupportoPersonalizzatoComponent },
+  { path: 'webinar', component: WebinarComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'calendar', component: CalendarComponent },

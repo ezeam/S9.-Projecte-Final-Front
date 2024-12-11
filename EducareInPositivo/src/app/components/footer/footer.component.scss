@@ -4,50 +4,65 @@
   font-family: "Arial Narrow", Arial, sans-serif;
 }
 
-.inchiesta{
-  background-color: map-get($theme-colors, "warning")!important;
+.logo {
+  margin-bottom: -60px;
 }
 
-.footer{
-  background-color: map-get($theme-colors, "primary")!important;
+.titulo {
+  color: map-get($theme-colors, "secondary");
 }
-  
- .nav-item .nav-link {
-    letter-spacing: 0.1rem;
-    color: gray;
-    border: none;
-  }
-  
- .nav-item .nav-link.active {
-    color: dark;
-    border-bottom: 0.25rem solid map-get($theme-colors, "secondary");;
-  }
-    
-  .nav .nav-item .nav-link {
-    letter-spacing: 0.1rem;
-  } 
 
- 
-  .btn-secondary:hover {
-    color: map-get($theme-colors, "secondary") !important;
-    background-color: map-get($theme-colors, "warning")!important;
-    border-color: map-get($theme-colors, "secondary") !important;
-  }
-  
-  .nav-link:hover{
-    color: map-get($theme-colors, "secondary") !important;
-  }
- 
-  .social-icon:hover {
-    transform: scale(1.2);
-  }
+.inchiesta {
+  background-color: map-get($theme-colors, "warning") !important;
+}
 
-  .btn:hover {
-    color: #9f83bd !important;
+.footer {
+  background-color: map-get($theme-colors, "primary") !important;
+}
+
+.nav-link {
+  letter-spacing: 0.1rem;
+  color: gray;
+  border: none;
+}
+
+.nav-link.active {
+  color: dark;
+  border-bottom: 0.25rem solid map-get($theme-colors, "secondary");
+}
+
+.nav-link:hover,
+.dropdown-item:hover {
+  color: map-get($theme-colors, "secondary") !important;
+}
+
+.btn-secondary:hover {
+  color: map-get($theme-colors, "secondary") !important;
+  background-color: map-get($theme-colors, "warning") !important;
+  border-color: map-get($theme-colors, "secondary") !important;
+}
+
+.btn:hover {
+  color: #9f83bd !important;
+}
+
+.navbar-toggler {
+  box-shadow: none;
+}
+
+@media (max-width: 991px) {
+  .navbar-toggler {
+    display: flex;
+    justify-content: flex-end !important;
   }
+}
 
-  
+@media (max-width: 400px) {
+  h2 {
+    font-size: 2em !important;
+  }
+}
 
-  
-
- 
+.social-icon:hover {
+  transform: scale(1.2);
+}

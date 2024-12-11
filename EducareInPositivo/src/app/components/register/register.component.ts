@@ -46,14 +46,14 @@ export class RegisterComponent {
         this.errorMessage = '';                
         this.alertService.alertStatus = 'success';
         this.alertService.alertMessage = 'Registrazione completata con successo.';        
-        this.router.navigate(['/home']);         
+        this.router.navigate(['/']);         
       },
       error: (error) => {               
         this.alertService.alertStatus = 'failed';
         this.alertService.alertMessage = 
           error?.error?.msg || 'Errore del server. Ci scusiamo per l’inconveniente, riprova più tardi.';
         console.error('Registration error:', error?.error?.msg);
-        this.router.navigate(['/home']);        
+        this.router.navigate(['/']);        
       },      
       complete: () => {
         // console.log("alertStatus", this.alertService.alertStatus);

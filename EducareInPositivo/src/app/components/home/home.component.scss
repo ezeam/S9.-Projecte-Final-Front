@@ -1,12 +1,8 @@
 @import '../../../styles.scss';
 
-
-
 body {
   overflow-x: hidden;
 }
-
-
 
 .card .img-size {
   width: 40%;
@@ -14,7 +10,7 @@ body {
 
 .card {
   border-color: map-get($theme-colors, "primary");
-  border-width: 1px; /* Puedes ajustar el grosor del borde si lo deseas */
+  border-width: 1px;
   border-style: solid;
 }
 
@@ -47,16 +43,6 @@ body {
   }
 }
 
-
-
 .accordion-button:hover {
   color: map-get($colors, 'secondary') !important;
 }
-
-
-
-
-
-  
-
- 

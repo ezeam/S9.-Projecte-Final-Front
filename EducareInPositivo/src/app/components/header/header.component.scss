@@ -1,65 +1,47 @@
 @import '../../../styles.scss';
 
-* {
-  font-family: "Arial Narrow", Arial, sans-serif;
-}
-
 .logo {
-  margin-bottom: -60px;
+  margin-bottom: -60px; // Consider reviewing if this is necessary
 }
 
 .titulo {
   color: map-get($theme-colors, "secondary");
 }
 
-.navbar-nav .nav-item .nav-link {
+.nav-link {
   letter-spacing: 0.1rem;
+
+  &:hover,
+  .dropdown-item:hover {
+    color: map-get($theme-colors, "secondary");
+  }
 }
 
-.nav-tabs .nav-item .nav-link.active {
-  color: black; 
-  border-bottom: 0.25rem solid map-get($theme-colors, "secondary");
-}
-
-.nav-tabs .nav-item .nav-link {
+.nav-tabs .nav-link {
   color: gray;
   border: none;
+
+  &.active {
+    color: black;
+    border-bottom: 0.25rem solid map-get($theme-colors, "secondary");
+  }
 }
 
-.nav .nav-item .nav-link {
-  letter-spacing: 0.1rem;
-}
-
-@media (max-width: 991px) {
-  .navbar-toggler {
-    display: flex;
-    justify-content: end !important;   
-  }    
-}
-
-@media screen and (max-width: 400px) {
-  h2 {
-    font-size: 2em !important;     
-  }    
-}
-
-.nav-link:hover {
-  color: map-get($theme-colors, "secondary");
-}
-
-.navbar-toggler:focus {
+.navbar-toggler {
   box-shadow: none;
+  
+  @media (max-width: 991px) {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
-.dropdown-item:hover{
-  color: map-get($theme-colors, "secondary");
+@media (max-width: 400px) {
+  h2 {
+    font-size: 2em;
+  }
 }
 
 .social-icon:hover {
   transform: scale(1.2);
 }
-
-
-  
-
- 

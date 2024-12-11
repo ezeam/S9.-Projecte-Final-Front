@@ -16,7 +16,7 @@ export class HeaderComponent {
 
   logOut(){
     localStorage.clear();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/']);
     this.authenticationService.logout();
   }
 }
