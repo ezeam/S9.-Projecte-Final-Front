@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Service } from '../../interfaces/service';
 import { PaymentService } from '../../services/payment.service';
 import { ModalPaypalComponent } from "../modal-paypal/modal-paypal.component";
-
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [ModalPaypalComponent],
+  imports: [ModalPaypalComponent, RouterModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
@@ -17,7 +17,7 @@ export class ProductsComponent implements OnInit {
     name: string | null, 
     price: number | null 
     description: string | null;
-  }[] = [
+  }[] = [    
     { id: 1, name: null, price: null, description: null },
     { id: 2, name: null, price: null, description: null },
     { id: 3, name: null, price: null, description: null },

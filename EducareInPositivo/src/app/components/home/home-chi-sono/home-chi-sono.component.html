@@ -1,9 +1,9 @@
 <div class="col-12 order-2 order-lg-1 text-center pt-4 mt-4">
-  <h1>"L'infanzia è il giardino <br>in cui giocheremo da adulti"</h1>
+  <h1>"L'infanzia è il giardino in cui giocheremo da adulti"</h1>
 </div>
-<button id="btn" class="btn btn-ctaChiamata" type="button" [routerLink]="['/calendar']">
+<!-- <button id="btn" class="btn btn-ctaChiamata" type="button" [routerLink]="['/calendar']">
   PRENOTA UNA CHIAMATA CONOSCITIVA
-</button>
+</button> -->
 <section class="container-xl mt-5" id="chi-sono">
   <div class="row justify-content-center align-items-center pt-4 mt-4 ms-lg-4">
     <div class="col-12 col-lg-6 order-2 order-lg-1 text-center text-lg-start mb-5 mb-lg-0">
@@ -15,11 +15,12 @@
       <div class="buttons">
           <button class="btn btn-primary me-3 px-3 py-2 border-2 shadow-sm" [routerLink]="['/chi-sono']" >         
               <span class="small">Ti raccontiamo un po di noi</span>              
-          </button>      
+          </button> 
+          <app-btn-chiamata></app-btn-chiamata>     
       </div>
     </div>
     <div class="col-12 col-lg-6 order-1 order-lg-2 mb-5 mb-lg-0 mt-lg-5 text-center position-relative">
-      <img class="img-fluid" src="img/homePageDef.png" width="528" height="393.38" alt="photo Nunzia Martella">        
+      <img loading="lazy" class="img-fluid" src="img/homePageDef.png" width="528" height="393.38" alt="photo Nunzia Martella">        
     </div>
   </div>
 </section> 

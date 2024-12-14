@@ -1,0 +1,46 @@
+<section class="container-xl mt-5" id="webinar-tematici">
+  <div class="row justify-content-center align-items-start pt-1 pb-4 mb-4 ms-lg-4">
+    <div class="col-12 d-flex align-items-center justify-content-center mb-5">
+      <h1 class="mb-3 mx-5 mx-lg-0 fw-bold">Webinar tematici</h1>
+    </div>
+    <div class="col-12 col-lg-6 order-1 order-lg-1">      
+      <div class="row mb-4">
+        <div class="col-12 col-md-8 text-center text-lg-start">
+          <h2 class="mb-3"><u>{{namePannolino}}</u></h2>
+          <p>Per molti bambini lasciare il pannolino è far fronte a qualcosa di sconosciuto, inesplorato. E’ andare incontro a una situazione che può fargli sperimentare mancanza di sicurezza, ma con questo webinar saprai come aiutare tu&#64; figli&#64;, accompagnandol&#64; durante il processo in modo rispettoso e sicuro. Avrai accesso a strumenti per evitare i principali errori che di solito si commettono e prevenire le difficoltà più importanti che possono sorgere durante il percorso.</p>
+          <p><strong>Prezzo:</strong> {{ pricePannolino ? pricePannolino : 'Loading...' }}€</p>
+        </div>
+        <div class="col-12 col-md-4 text-center">
+          <button class="btn btn-cta" type="button" (click)="handleButtonClickPannolino()">INSCRIVERMI pannolino</button>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col-12 col-md-8 text-center text-lg-start">
+          <h2 class="mb-3"><u>{{nameAmbientamento}}</u></h2>
+          <p>Il momento del passaggio al nido o alla scuola dell’infanzia è per molti il primo vero distacco con la figura di riferimento, per questo è importante gestire in modo sereno questa importante tappa. Ascoltare le emozioni tanto del bambino quanto della mamma e aiutare a gestire il distacco in modo rispettoso e sereno sono gli obiettivi del webinar.</p>
+          <p><strong>Prezzo:</strong> {{ priceAmbientamento ? priceAmbientamento : 'Loading...' }}€</p>
+        </div>
+        <div class="col-12 col-md-4 text-center">
+          <button class="btn btn-cta" type="button" (click)="handleButtonClickAmbientamento()">INSCRIVERMI <span style="font-size: 15px;">ambientamento</span></button>
+        </div>        
+      </div>
+      <div class="row mb-4">
+        <div class="col-12 col-md-8 text-center text-lg-start">
+          <h2 class="mb-3"><u>{{nameCapricci}}</u></h2>
+          <p>I “capricci” non esistono, sono piuttosto una forma con cui il bambino piccolo ci comunica stress, stanchezza, rabbia e frustrazione. Imparerai a decifrare il codice con cui tu&#64; figli&#64; cerca di comunicare un bisogno, una necessità, un malessere.</p>
+          <p><strong>Prezzo:</strong> {{ priceCapricci ? priceCapricci : 'Loading...' }}€</p>
+        </div>
+        <div class="col-12 col-md-4 text-center">
+          <button class="btn btn-cta" type="button" (click)="handleButtonClickCapricci()">INSCRIVERMI capricci</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 order-2 order-lg-2 text-center mb-5 mb-lg-0">
+      <img loading="lazy" class="img-fluid" src="img/appoggioAlleFamiglie.png" alt="educare in positivo" />
+      <app-btn-chiamata></app-btn-chiamata> 
+    </div>       
+  </div>
+</section>
+<div>
+  <app-modal-paypal></app-modal-paypal>
+</div>

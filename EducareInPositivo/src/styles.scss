@@ -10,12 +10,30 @@ $theme-colors: (
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 * {
-  font-family: "Arial Narrow", Arial, sans-serif;
+  font-family: montserrat;
 }
 
 h2 {
   color: map-get($theme-colors, "secondary");
   font-size: 28px;
+}
+
+h1 {
+  text-align: center;
+  color: map-get($theme-colors, "primary");
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: map-get($theme-colors, "primary") !important;
+  border-radius: 20px; /* Botones redondeados */
+  margin: 5px; /* Espaciado entre botones */
+}
+
+.btn-primary:hover { 
+  color: map-get($theme-colors, "secondary");
+  background-color: map-get($theme-colors, "warning") !important;
+  border-color: map-get($colors, 'primary');
 }
 
 .btn-cta {
@@ -39,10 +57,32 @@ h2 {
   margin-bottom: 20px; 
 }
 
+.btn-cta:hover { 
+  color: #98d2de; 
+  background-color: #F1FCFE; 
+  border-color: #98d2de; 
+  font-weight: bold; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
 .btn-ctaChiamata {
-  position: fixed; /* Cambiado a 'fixed' para que sea visible durante el scroll */
-  top: 20%; /* Posición inicial */
-  right: 20px; /* Espaciado desde el borde derecho */
+  background-color: map-get($theme-colors, "primary") !important;
+  border-radius: 20px; /* Botones redondeados */
+  margin: 5px; /* Espaciado entre botones */
+  font-weight: bold;
+}
+
+.btn-ctaChiamata:hover {
+  color: map-get($theme-colors, "secondary");
+  background-color: map-get($theme-colors, "warning") !important;
+  border-color:  map-get($theme-colors, "primary");
+}
+
+/*.btn-ctaChiamata {
+  position: fixed; 
+  top: 20%; 
+  right: 20px; 
   color: white; 
   background-color: #9f83bd; 
   border: 0.2em solid #98d2de;
@@ -58,32 +98,18 @@ h2 {
   width: 9em; 
   height: 9em; 
   z-index: 1000;
-}
+}*/
 
 /* Cambios de color en hover */
-.btn-primary:hover { 
-  color: map-get($theme-colors, "primary");
-  background-color: white;
-  border-color: map-get($colors, 'primary');
-}
 
-.btn-cta:hover { 
-  color: #98d2de; 
-  background-color: #F1FCFE; 
-  border-color: #98d2de; 
-  font-weight: bold; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  transition: background-color 0.3s ease, color 0.3s ease; 
-}
-
-.btn-ctaChiamata:hover { 
+/*.btn-ctaChiamata:hover { 
   color: #9f83bd; 
   background-color: #98d2de; 
   border-color: #9f83bd; 
   font-weight: bold; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   transition: background-color 0.3s ease, color 0.3s ease; 
-}
+}*/
 
 @keyframes swing {
   0% {

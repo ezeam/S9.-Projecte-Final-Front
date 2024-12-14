@@ -1,89 +1,62 @@
-<!-- Sección para el servicio Percorso Educare -->
-<section class="container-xl mt-5" id="per-corso-educare">
-  @if(services[0]){
-    <div class="row justify-content-center align-items-start pt-1 pb-4 mb-4">
-      <div class="col-12 d-flex align-items-center justify-content-center mb-5">
-        <h3 class="mb-3 fw-bold">{{ services[0].name }}</h3>
-      </div>
-      <div class="col-12 col-lg-6 mb-5 text-center text-lg-start order-1 order-lg-1">
-        <p><strong>Il per-corso è perfetto per te se:</strong></p>
-        <ul class="list-unstyled">
-          <li>Sei genitore o caregiver di un bimbo in età compresa tra 2 e 6 anni.</li>
-          <li>Vuoi imparare a capire il comportamento del tuo bambino.</li>
-          <!-- Agregar más elementos específicos para este servicio -->
-        </ul>
-        <p><strong>Prezzo:</strong> {{ services[0].price !== null ? services[0].price : 'Loading...' }}€</p>
-      </div>
-      <div class="col-12 col-lg-2 mb-5 text-center order-2 order-lg-2 d-flex align-items-center justify-content-center">
-        <div class="d-none d-sm-block">
-          <button class="btn btn-cta" type="button" (click)="handleButtonClick(0)">INSCRIVERMI</button>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4 mb-5 text-center order-3 order-lg-3">
-        <img class="img-fluid" src="img/corsoDiFormazione.png" alt="educare in positivo" />
-      </div>
-    </div>
-  }  
-  <app-modal-paypal></app-modal-paypal>
-</section>
-
-<!-- Sección para el servicio Supporto Personalizzato -->
-<section class="container-xl mt-5" id="chi-sono">
-  @if(services[1]){
-    <div class="row justify-content-center align-items-start pt-1 pb-4 mb-4">
-      <div class="col-12 d-flex align-items-center justify-content-center mb-5">
-        <h3 class="mb-3 fw-bold">{{ services[1].name }}</h3>
-      </div>
-      <div class="col-12 col-lg-6 mb-5 text-center text-lg-start order-1 order-lg-1">
-        <p><strong>Il servizio è perfetto per te se:</strong></p>
-        <ul class="list-unstyled">
-          <li>Hai un bambino nell'età compresa tra 1 e 6 anni</li>
-          <li>Senti la necessità di una guida professionale...</li>
-          <!-- Agregar más elementos específicos para este servicio -->
-        </ul>
-        <p><strong>Prenota una chiamata conoscitiva</strong></p>
-        <p>Se vuoi avere informazioni sul mio lavoro...</p>
-        <p><strong>Prezzo:</strong> {{ services[1].price !== null ? services[1].price : 'Loading...' }}€</p>
-      </div>
-      <div class="col-12 col-lg-2 mb-5 text-center order-2 order-lg-2 d-flex align-items-center justify-content-center">
-        <div class="d-none d-sm-block">
-          <button class="btn btn-cta" type="button" (click)="handleButtonClick(1)">INSCRIVERMI</button>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4 mb-5 text-center order-3 order-lg-3">
-        <img class="img-fluid" src="img/appoggioAlleFamiglie.png" alt="educare in positivo" />
-      </div>
-    </div>
-  }  
-  <app-modal-paypal></app-modal-paypal>
-</section>
-
-<!-- Sección para los servicios Webinar -->
-<section class="container-xl mt-5" id="webinar-tematici">
-  @if(services.slice(2).length > 0){
-    <div class="row justify-content-center align-items-start pt-1 pb-4 mb-4 ms-lg-4">
-    <div class="col-12 d-flex align-items-center justify-content-center mb-5">
-      <h3 class="mb-3 mx-5 mx-lg-0 fw-bold">Webinar tematici</h3>
-    </div>
-    <div class="col-12 col-lg-6 order-1 order-lg-1">
-      @for(service of services.slice(2); track service){
-        <div class="row mb-4">
-          <div class="col-12 col-md-8 text-center text-lg-start">
-            <h5 class="mb-3"><u>{{ service.name }}</u></h5>
-            <p>{{ service.description }}</p>
-            <p><strong>Prezzo:</strong> {{ service.price ? service.price : 'Loading...' }}€</p>
+<h1>Servizi di Educare in Positivo</h1>
+<section class="container-xl mt-5 mb-5">
+  <div class="row justify-content-center">
+      <!-- Card Percorso Educare -->
+      <div class="col-12 col-lg-4 mb-4">
+          <div class="card custom-card p-4" style="min-height: 450px;">
+              <div class="card-body text-center">
+                  <h2 class="card-title mb-3"><strong>Percorso <br> Educare</strong></h2>
+                  <p>Il per-corso è perfetto per te se:</p>
+                  <ul class="mb-3 text-start">
+                    <li>Sei genitore o caregiver di un bimbo in età compresa tra 2 e 6 anni.</li>
+                    <li>Vuoi imparare a capire il comportamento del tuo bambino.</li>
+                  </ul>
+                  <p class="card-price"><strong>{{ services[0].price !== null ? services[0].price : 'Loading...' }}€</strong></p>
+                  <div>
+                    <button class="btn btn-primary" type="button" (click)="handleButtonClick(0)">INSCRIVERMI</button>
+                    <button class="btn btn-primary" [routerLink]="['/percorso-educare']">SAPERE DI PIÙ</button>
+                  </div>
+              </div>
           </div>
-          <div class="col-12 col-md-4 text-center">
-            <button class="btn btn-cta" type="button" (click)="handleButtonClick(service.id)">INSCRIVERMI {{ service.name }}</button>
+      </div>
+      <!-- Card Consulenza Personalizzata -->
+      <div class="col-12 col-lg-4 mb-4">
+          <div class="card custom-card p-4" style="min-height: 450px;">
+              <div class="card-body text-center">
+                  <h2 class="card-title mb-3"><strong>Consulenza Personalizzata</strong></h2>
+                  <p>Il per-corso è perfetto per te se:</p>
+                  <ul class="mb-3 text-start">
+                    <li>Sei genitore o caregiver di un bimbo in età compresa tra 2 e 6 anni.</li>
+                    <li>Senti la necessità di una guida professionale.</li>
+                  </ul>
+                  <p class="card-price"><strong>{{ services[1].price !== null ? services[1].price : 'Loading...' }}€</strong></p>
+                  <div>
+                      <button class="btn btn-primary" type="button" (click)="handleButtonClick(1)">INSCRIVERMI</button>
+                      <button class="btn btn-primary" [routerLink]="['/supporto-personalizzato']">SAPERE DI PIÙ</button>
+                  </div>
+              </div>
           </div>
-        </div>
-      }      
-    </div>
-    <div class="col-12 col-lg-6 order-2 order-lg-2 text-center mb-5 mb-lg-0">
-      <img class="img-fluid" src="img/appoggioAlleFamiglie.png" alt="educare in positivo" />
-    </div>       
+      </div>
+
+      <!-- Card Webinar Tematici -->
+      <div class="col-12 col-lg-4 mb-4">
+          <div class="card custom-card p-4" style="min-height: 450px;">
+              <div class="card-body text-center">
+                  <h2 class="card-title mb-3"><strong>Webinar Tematici</strong></h2>
+                  <p class="card-text text-start">Scopri una serie di webinar per approfondire tematiche educative specifiche.</p>
+                  <ul class="mb-3 text-start">
+                    <li>Lasciare il pannolino</li>
+                    <li>Ambientamento sereno al nido e scuola</li>
+                    <li>Non chiamateli capricci</li>
+                  </ul>
+                  <p class="card-price"><strong>{{ services[2].price ? services[2].price : 'Loading...' }}€</strong></p>
+                  <div>
+                      <!-- <button class="btn btn-primary" [routerLink]="['/webinar']">INSCRIVERMI</button> -->
+                      <button class="btn btn-primary" [routerLink]="['/webinar']">SAPERE DI PIÙ</button>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
-  }
-  
-  <app-modal-paypal></app-modal-paypal>
 </section>
+<app-modal-paypal></app-modal-paypal>

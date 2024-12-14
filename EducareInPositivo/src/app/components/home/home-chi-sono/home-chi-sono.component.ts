@@ -5,13 +5,14 @@ import { CalendarService } from '../../../services/calendar.service';
 import { CalendarComponent } from '../../../calendar/calendar.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertNotificationComponent } from '../../../alert-notification/alert-notification.component';
+import { BtnChiamataComponent } from '../../btn-chiamata/btn-chiamata.component';
 
 import { AlertService } from '../../../services/alert.service';
 
 @Component({
   selector: 'app-home-chi-sono',
   standalone: true,
-  imports: [RouterModule, CommonModule, AlertNotificationComponent ],
+  imports: [RouterModule, CommonModule, AlertNotificationComponent, BtnChiamataComponent],
   templateUrl: './home-chi-sono.component.html',
   styleUrls: ['./home-chi-sono.component.scss']
 })
