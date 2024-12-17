@@ -130,7 +130,7 @@ export class PaymentService {
 
         this.alertService.alertStatus = 'failed';
         this.alertService.alertMessage = 'Errore nel pagamento. La preghiamo di riprovare più tardi.';
-        this.router.navigate(['/']);        
+        this.router.navigate(['/']);              
         // TO-DO: Redirijimos a la página de SERVICIOS (cuando esté todo unificado en la misma)
       }
     }).render('#paypal-button-container'); // Renderiza el botón en el contenedor del modal

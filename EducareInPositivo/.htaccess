@@ -1,8 +1,18 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
+
+  # Asegurarse de que las rutas de la API no sean redirigidas al frontend
+  RewriteCond %{REQUEST_URI} ^/api/ [NC]
+  RewriteRule ^api/(.*)$ http://localhost:3001/api/$1 [P,L]
+
+  # Redirigir todas las demás solicitudes al frontend de Angular
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule ^(.*)$ /index.html [L]
+
+  # Evitar que los archivos o directorios específicos de Angular sean reescritos
+  RewriteRule ^index\.html$ - [L]
+  RewriteRule ^assets/ - [L]
+  RewriteRule ^favicon.ico - [L]
 </IfModule>

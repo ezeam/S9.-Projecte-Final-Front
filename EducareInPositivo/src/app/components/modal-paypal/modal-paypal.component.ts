@@ -5,7 +5,6 @@ import { PaymentService } from '../../services/payment.service';
   selector: 'app-modal-paypal',
   standalone: true,
   imports: [],
-  providers: [PaymentService],
   templateUrl: './modal-paypal.component.html',
   styleUrl: './modal-paypal.component.scss'
 })

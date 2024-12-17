@@ -3,11 +3,12 @@ import { PaymentService } from '../../services/payment.service';
 import { ModalPaypalComponent } from "../modal-paypal/modal-paypal.component";
 import { Service } from '../../interfaces/service';
 import { BtnChiamataComponent } from "../btn-chiamata/btn-chiamata.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-webinar',
   standalone: true,
-  imports: [ModalPaypalComponent, BtnChiamataComponent],
+  imports: [ModalPaypalComponent, BtnChiamataComponent, CommonModule],
   templateUrl: './webinar.component.html',
   styleUrl: './webinar.component.scss'
 })
