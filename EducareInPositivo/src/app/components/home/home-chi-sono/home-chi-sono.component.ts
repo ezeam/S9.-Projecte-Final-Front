@@ -1,8 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
-import { CalendarService } from '../../../services/calendar.service';
-import { CalendarComponent } from '../../../calendar/calendar.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertNotificationComponent } from '../../../alert-notification/alert-notification.component';
 import { BtnChiamataComponent } from '../../btn-chiamata/btn-chiamata.component';
@@ -42,5 +40,9 @@ export class HomeChiSonoComponent implements OnInit {
     this.alertMessage = null;
     this.alertService.alertStatus = null;
     this.alertService.alertMessage = null;
+  }
+
+  onAlertClosed(): void {
+    this.alertMessage = null; 
   }
 }

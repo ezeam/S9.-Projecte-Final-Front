@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.invalid) {
-      this.errorMessage = 'Please check all required fields';
+      this.errorMessage = 'Controlla per favore che tutti i campi obbligatori siano compilati';
       this.loginForm.markAllAsTouched();
       return;
     }

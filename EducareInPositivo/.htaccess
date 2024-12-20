@@ -1,18 +1,18 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
+RewriteEngine On
 
-  # Asegurarse de que las rutas de la API no sean redirigidas al frontend
-  RewriteCond %{REQUEST_URI} ^/api/ [NC]
-  RewriteRule ^api/(.*)$ http://localhost:3001/api/$1 [P,L]
+# Fuerza el uso de HTTPS en todo el sitio
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # Redirigir todas las demás solicitudes al frontend de Angular
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ /index.html [L]
+# Reenvía las solicitudes que comienzan con /api al backend
+RewriteCond %{REQUEST_URI} ^/api
+RewriteRule ^(.*)$ https://educareinpositivo.site/$1 [P,L]
 
-  # Evitar que los archivos o directorios específicos de Angular sean reescritos
-  RewriteRule ^index\.html$ - [L]
-  RewriteRule ^assets/ - [L]
-  RewriteRule ^favicon.ico - [L]
-</IfModule>
+# Permite el acceso normal a otros archivos estáticos o páginas
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.html [L]
+
+# Manejar errores si el backend está apagado
+ErrorDocument 502 /down.html
+ErrorDocument 504 /down.html

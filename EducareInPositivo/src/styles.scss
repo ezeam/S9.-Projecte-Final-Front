@@ -28,6 +28,7 @@ h1 {
   background-color: map-get($theme-colors, "primary") !important;
   border-radius: 20px; /* Botones redondeados */
   margin: 5px; /* Espaciado entre botones */
+  color: white;
 }
 
 .btn-primary:hover { 
@@ -67,10 +68,10 @@ h1 {
 }
 
 .btn-ctaChiamata {
-  background-color: map-get($theme-colors, "primary") !important;
+  background-color: map-get($theme-colors, "secondary") !important;
   border-radius: 20px; /* Botones redondeados */
   margin: 5px; /* Espaciado entre botones */
-  font-weight: bold;
+  color: white;
 }
 
 .btn-ctaChiamata:hover {

@@ -1,4 +1,4 @@
-@if(alertMessage){
+@if(alertMessage) {
   <div
     [ngClass]="{'alert-success': alertStatus === 'success', 'alert-danger': alertStatus === 'failed'}"
     class="floating-alert alert alert-dismissible fade show"
@@ -12,11 +12,13 @@
         aria-label="Close"
         (click)="dismissAlert()"
       >
-      &times;
-    </button>
+        &times;
+      </button>
     </div>
   </div>
 }
+
+
 
 
 

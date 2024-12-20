@@ -16,6 +16,12 @@
   .dropdown-item:hover {
     color: map-get($theme-colors, "secondary");
   }
+
+  &.active-link {
+    color: map-get($theme-colors, "secondary");
+    font-weight: bold;
+    border-bottom: 2px solid map-get($theme-colors, "secondary");
+  }
 }
 
 .nav-tabs .nav-link {

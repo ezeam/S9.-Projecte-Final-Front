@@ -15,13 +15,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-lg-0" >
         <li class="nav-item">
-          <a class="nav-link" role="button" routerLink="/">HOME</a>
+          <a class="nav-link" role="button" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" role="button" routerLink="/chi-sono">CHI SIAMO</a>
+          <a class="nav-link" role="button" routerLink="/chi-sono" routerLinkActive="active-link">CHI SIAMO</a>
         </li>  
         <li class="nav-item">
-          <a class="nav-link" role="button" routerLink="/products">SERVIZI</a>
+          <a class="nav-link" role="button" routerLink="/products" routerLinkActive="active-link">SERVIZI</a>
         </li>         
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,11 +36,11 @@
           </ul>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link" role="button" routerLink="/disciplina-positiva">DISCIPLINA POSITIVA</a>
+          <a class="nav-link" role="button" routerLink="/disciplina-positiva" routerLinkActive="active-link">DISCIPLINA POSITIVA</a>
         </li>
         <li class="nav-item">
           @if(!(authenticationService.isLoggedIn$ | async)){     
-              <a class="nav-link" role="button" routerLink="/login">LOGIN</a>
+              <a class="nav-link" role="button" routerLink="/login" routerLinkActive="active-link">LOGIN</a>
           } 
           @if(authenticationService.isLoggedIn$ | async){            
               <a class="nav-link" role="button" (click)="logOut()">LOGOUT</a>            

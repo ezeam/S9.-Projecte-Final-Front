@@ -24,9 +24,8 @@
     </div>
   </div>
 </section> 
-<app-alert-notification 
-  [alertStatus]="alertStatus"
+<app-alert-notification
   [alertMessage]="alertMessage"
-  (alertClosed)="dismissAlert()"
->
-</app-alert-notification>
+  [alertStatus]="alertStatus"
+  (alertClosed)="onAlertClosed()"
+></app-alert-notification>
