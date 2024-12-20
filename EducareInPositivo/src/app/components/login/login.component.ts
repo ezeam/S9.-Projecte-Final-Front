@@ -4,11 +4,12 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { AuthenticationService } from '../../services/authentication.service';  
 import { Router, RouterLink } from '@angular/router';
 import { Location } from '@angular/common';
+import { AlertNotificationComponent } from "../../alert-notification/alert-notification.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, RouterLink, CommonModule],
+  imports: [ReactiveFormsModule, FormsModule, RouterLink, CommonModule, AlertNotificationComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
@@ -16,6 +17,9 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   errorMessage: string = '';
   isLoggedIn: boolean = false;
+  alertMessage: string | null = null;
+  alertStatus: 'success' | 'failed' | null = null;
+
 
   constructor(private fb: FormBuilder,private authentication: AuthenticationService,
     private router: Router,
@@ -45,17 +49,14 @@ export class LoginComponent implements OnInit {
 
     this.authentication.login(credentials).subscribe({
       next: () => {
-        this.errorMessage = '';
-        // this.router.navigate(['/']);        
+        this.alertMessage = null;
+        this.alertStatus = null;
         this.location.back();
       },
       error: (error) => {
-        this.errorMessage = error?.error?.msg;
+        this.alertMessage = error?.error?.msg || 'Errore durante il login';
+        this.alertStatus = 'failed';
         console.error('Login error:', error);
-      },
-      complete: () => {
-       // console.log('Login observable completed');
-
       },
     });
   }

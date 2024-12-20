@@ -16,15 +16,15 @@ export class WebinarComponent implements OnInit {
 
   namePannolino: string | null = null;
   pricePannolino: number | null = null;
-  serviceIdPannolino: number = 3;
+  serviceIdPannolino: number = 2;
 
   nameAmbientamento: string | null = null;
   priceAmbientamento: number | null = null;
-  serviceIdAmbientamento: number = 4;
+  serviceIdAmbientamento: number = 3;
   
   nameCapricci: string | null = null;
   priceCapricci: number | null = null;
-  serviceIdCapricci: number = 5;
+  serviceIdCapricci: number = 4;
 
   constructor(public paymentService: PaymentService) { }
 
@@ -92,14 +92,14 @@ export class WebinarComponent implements OnInit {
   // Método para cargar todos los precios
   async loadPrices() {
     try {
-      this.namePannolino = await this.loadNameById(3);  // Nombre para el servicio de dejar el pañal
-      this.pricePannolino = await this.loadPriceById(3); // Precio para el servicio de dejar el pañal
+      this.namePannolino = await this.loadNameById(2);  // Nombre para el servicio de dejar el pañal
+      this.pricePannolino = await this.loadPriceById(2); // Precio para el servicio de dejar el pañal
 
-      this.nameAmbientamento = await this.loadNameById(4); 
-      this.priceAmbientamento = await this.loadPriceById(4); 
+      this.nameAmbientamento = await this.loadNameById(3); 
+      this.priceAmbientamento = await this.loadPriceById(3); 
 
-      this.nameCapricci = await this.loadNameById(5);    
-      this.priceCapricci = await this.loadPriceById(5);    
+      this.nameCapricci = await this.loadNameById(4);    
+      this.priceCapricci = await this.loadPriceById(4);    
     } catch (error) {
       console.error('Error al cargar todos los precios:', error);
     }

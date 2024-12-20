@@ -17,12 +17,13 @@ export class ProductsComponent implements OnInit {
     name: string | null, 
     price: number | null 
     description: string | null;
-  }[] = [    
+  }[] = [ 
+    { id: 0, name: null, price: null, description: null },   
     { id: 1, name: null, price: null, description: null },
     { id: 2, name: null, price: null, description: null },
     { id: 3, name: null, price: null, description: null },
     { id: 4, name: null, price: null, description: null },
-    { id: 5, name: null, price: null, description: null }
+    
   ];
 
   constructor(public paymentService: PaymentService) { }
@@ -73,13 +74,24 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  // Método para cargar todos los precios y nombres de los servicios
   async loadPrices() {
     try {
-      for (const service of this.services) {
-        service.name = await this.loadNameById(service.id); // Nombre del servicio
-        service.price = await this.loadPriceById(service.id); // Precio del servicio
-      }
+      const promises = this.services.map(service => 
+        Promise.all([
+          this.loadNameById(service.id),
+          this.loadPriceById(service.id)
+        ]).then(([name, price]) => {
+          // Aquí asignas los valores según el id, no el índice
+          const matchedService = this.services.find(s => s.id === service.id);
+          if (matchedService) {
+            matchedService.name = name;
+            matchedService.price = price;
+          }
+        })
+      );
+      // Espera a que todas las promesas se resuelvan
+      await Promise.all(promises);
+      console.log('Todos los precios y nombres han sido cargados.');
     } catch (error) {
       console.error('Error al cargar todos los precios:', error);
     }

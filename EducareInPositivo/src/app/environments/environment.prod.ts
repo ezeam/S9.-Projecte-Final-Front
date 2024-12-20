@@ -1,4 +1,4 @@
 export const environment = {
   production: true, 
-  endpoint: 'https://www.educareinpositivo.site'
+  endpoint: 'https://educareinpositivo.site'
 };

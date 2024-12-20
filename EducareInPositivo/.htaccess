@@ -1,18 +1,19 @@
+# Habilitar mod_rewrite
 RewriteEngine On
 
-# Fuerza el uso de HTTPS en todo el sitio
+# Forzar el uso de HTTPS en todo el sitio
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Reenvía las solicitudes que comienzan con /api al backend
+# Excluir solicitudes hacia /api del manejo del frontend
 RewriteCond %{REQUEST_URI} ^/api
-RewriteRule ^(.*)$ https://educareinpositivo.site/$1 [P,L]
+RewriteRule ^ - [L]
 
-# Permite el acceso normal a otros archivos estáticos o páginas
+# Redirigir otras rutas al frontend
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /index.html [L]
 
-# Manejar errores si el backend está apagado
+# Manejo de errores del backend
 ErrorDocument 502 /down.html
 ErrorDocument 504 /down.html
