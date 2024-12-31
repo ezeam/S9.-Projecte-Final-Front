@@ -1,60 +1,72 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
   <div class="container">
-    <a class="navbar-brand">          
-      <img loading="lazy" class="d-none d-lg-block logo" src="img/icona.svg" alt="EIP" width="117.19" height="130" >
+    <a class="navbar-brand d-flex align-items-center" routerLink="/">
+      <img loading="lazy" class="d-none d-lg-block logo" src="img/icona.svg" alt="EIP" width="117.19" height="130">
       <img loading="lazy" class="d-block d-lg-none" src="img/icona.svg" alt="EIP" width="63.08" height="70">
     </a>
-    <div class="col-3 d-flex align-items-center justify-content-start me-5">
-      <a class="navbar-brand ms-lg-1" routerLink="/home">          
-          <span class="titulo fs-3">Educare in Positivo</span>
+    <div class="d-flex align-items-center justify-content-start">
+      <a class="navbar-brand ms-0" routerLink="/">
+        <span class="titulo">Educare in Positivo</span>
       </a>
-  </div>
-    <button class="navbar-toggler ms-5" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    </div>
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbarSupportedContent" 
+      aria-controls="navbarSupportedContent" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>  
+    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-lg-0" >
+      <ul class="navbar-nav ms-auto mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" role="button" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">HOME</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" role="button" routerLink="/chi-sono" routerLinkActive="active-link">CHI SIAMO</a>
-        </li>  
+        </li>
         <li class="nav-item">
           <a class="nav-link" role="button" routerLink="/products" routerLinkActive="active-link">SERVIZI</a>
-        </li>         
-        <!-- <li class="nav-item dropdown">
+        </li>
+        <!-- Dropdown de servicios (comentado por defecto) -->
+        <!--
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            SERVIZI 
+            SERVIZI
           </a>
-          <ul class="dropdown-menu" role="button" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" routerLink="percorso-educare">PER-CORSO “EDUCARE IN POSITIVO”</a></li>              
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="percorso-educare">PER-CORSO “EDUCARE IN POSITIVO”</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" routerLink="/supporto-personalizzato">SUPPORTO PERSONALIZZATO</a></li>              
+            <li><a class="dropdown-item" routerLink="/supporto-personalizzato">SUPPORTO PERSONALIZZATO</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" routerLink="/webinar">WEBINAR TEMATICI</a></li>
           </ul>
-        </li> -->
+        </li>
+        -->
         <li class="nav-item">
           <a class="nav-link" role="button" routerLink="/disciplina-positiva" routerLinkActive="active-link">DISCIPLINA POSITIVA</a>
         </li>
+
+        <!-- Login/Logout Condicional -->
         <li class="nav-item">
-          @if(!(authenticationService.isLoggedIn$ | async)){     
-              <a class="nav-link" role="button" routerLink="/login" routerLinkActive="active-link">LOGIN</a>
-          } 
-          @if(authenticationService.isLoggedIn$ | async){            
-              <a class="nav-link" role="button" (click)="logOut()">LOGOUT</a>            
-          }  
+          @if(!(authenticationService.isLoggedIn$ | async)) {
+            <a class="nav-link" role="button" routerLink="/login" routerLinkActive="active-link">LOGIN</a>
+          }
+          @if(authenticationService.isLoggedIn$ | async) {
+            <a class="nav-link" role="button" (click)="logOut()">LOGOUT</a>
+          }
         </li>
-        <li class="lh-lg">
+        <li class="nav-item d-flex align-items-center">
           <a class="nav-link d-inline" href="https://www.instagram.com/educareinpositivo/" target="_blank">
-            <img src="icon/icon-instagram.svg" alt="twitter-icon" height="25" class="social-icon" loading="lazy">
-          </a>    
+            <img src="icon/icon-instagram.svg" alt="instagram-icon" height="25" class="social-icon" loading="lazy">
+          </a>
           <a class="nav-link d-inline" href="https://es-la.facebook.com/nuni.nuni.5203577" target="_blank">
-            <img src="icon/icon-facebook.svg" alt="facebook-icon" height="25" class="social-icon" target="_blank" loading="lazy">
-          </a>       
-        </li>           
-      </ul>      
+            <img src="icon/icon-facebook.svg" alt="facebook-icon" height="25" class="social-icon" loading="lazy">
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
