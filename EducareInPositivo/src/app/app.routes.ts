@@ -6,6 +6,7 @@ import { DisciplinaPositivaComponent } from './components/disciplina-positiva/di
 import { SupportoPersonalizzatoComponent } from './components/supporto-personalizzato/supporto-personalizzato.component';
 import { WebinarComponent } from './components/webinar/webinar.component';*/
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { CookiePolicyComponent } from './cookie-policy/cookie-policy.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -39,6 +40,7 @@ export const routes: Routes = [
   { path: 'supporto-personalizzato', component: SupportoPersonalizzatoComponent },
   { path: 'webinar', component: WebinarComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'cookie-policy', component: CookiePolicyComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 ];

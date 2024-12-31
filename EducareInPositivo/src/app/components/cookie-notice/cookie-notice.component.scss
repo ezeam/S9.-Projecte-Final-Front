@@ -1,0 +1,16 @@
+.cookie-notice {
+  background-color: #b3e1e8;
+  color: #000;
+  z-index: 9999;
+  padding: 15px;
+  border-radius: 0;
+  border: none;
+}
+
+.cookie-notice-content {
+  display: flex;  
+}
+
+.cookie-notice-button {
+  margin-left: auto;
+}

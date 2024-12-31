@@ -1,0 +1,9 @@
+<div *ngIf="showCookieNotice" class="fixed-bottom mb-0 cookie-notice">
+  <div class="container cookie-notice-content">
+    <span>
+      Questo sito utilizza cookie per consentire l’acquisto di prodotti e migliorare l’esperienza di navigazione.
+      <a href="/cookie-policy">Cookie policy</a>.
+    </span>
+    <button (click)="acceptCookies()" class="btn btn-warning btn-sm cookie-notice-button">Consenti tutti</button>
+  </div>
+</div>

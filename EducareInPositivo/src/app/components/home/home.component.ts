@@ -3,13 +3,13 @@ import { HomeChiSonoComponent } from "./home-chi-sono/home-chi-sono.component";
 import { HomeComePosoAiutartiComponent } from "./home-come-poso-aiutarti/home-come-poso-aiutarti.component";
 import { HomeDisciplinaPositivaComponent } from "./home-disciplina-positiva/home-disciplina-positiva.component";
 import { HomeDiconoDiMeComponent } from "./home-dicono-di-me/home-dicono-di-me.component";
-import { ChiSonoComponent } from "../chi-sono/chi-sono.component";
+import { CookieNoticeComponent } from '../cookie-notice/cookie-notice.component';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HomeChiSonoComponent, HomeComePosoAiutartiComponent, HomeDisciplinaPositivaComponent, HomeDiconoDiMeComponent, RouterModule],
+  imports: [HomeChiSonoComponent, HomeComePosoAiutartiComponent, HomeDisciplinaPositivaComponent, HomeDiconoDiMeComponent, RouterModule, CookieNoticeComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -32,3 +32,4 @@ export class HomeComponent implements OnInit{
     })
   }
 }
+
