@@ -1,4 +1,4 @@
-<div class="card container-fluid col-8 col-md-7 col-lg-5 col-xl-4 col-xxl-3 mt-5 mb-5">
+<div class="card container-fluid col-10 col-md-9 col-lg-7 col-xl-5 col-xxl-4 mt-5 mb-5">
   <form [formGroup]="registerForm" (ngSubmit)="register()">
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
@@ -48,32 +48,42 @@
       </div>
       }
     </div>
+
+    <!-- id, dni, carta identitare-->   
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
-        <label htmlFor="inputNombre" class="form-label mt-4">Carta d'Identità</label>
+        <label htmlFor="inputId" class="form-label">Tipo de documento (tra)</label>
       </span>
-      <input
-        type="text"
-        class="form-control"
-        id="inputDNI"
-        formControlName="dni"
-        [ngClass]="{
-          'is-invalid':
-            registerForm.get('dni')?.invalid &&
-            registerForm.get('dni')?.touched
-        }"
-      />
-      @if(registerForm.get('dni')?.invalid &&
-      registerForm.get('dni')?.touched) {
-      <div class="text-danger">
-        @if(registerForm.get('dni')?.errors?.['required']) { La carta d'identità è obbligatoria } 
-        @if(registerForm.get('dni')?.errors?.['minlength']) { La carta d'identit'a deve avere al meno 8 caratteri }
+      <div class="d-flex flex-column flex-sm-row justify-content-between">
+          <select class="form-select w-100 w-sm-50" id="documento" aria-label="Seleccionar tipo de documento (tra)">
+              <option value="cartaIdentita_id" selected>Carta d'Identità</option>
+              <option value="dni_id">DNI</option>
+          </select>
+          <input
+              type="text"
+              class="form-control w-100 w-sm-50 ms-0 ms-sm-3"
+              id="inputId"
+              placeholder="Número de documento (tra)"
+              formControlName="cartaIdentita_id"
+              [ngClass]="{
+                  'is-invalid':
+                  registerForm.get('cartaIdentita_id')?.invalid &&
+                  registerForm.get('cartaIdentita_id')?.touched
+              }"
+          />
       </div>
-      }
+    </div>    
+    <div class="text-danger" *ngIf="registerForm.get('cartaIdentita_id')?.invalid && registerForm.get('cartaIdentita_id')?.touched">
+      <div *ngIf="registerForm.get('cartaIdentita_id')?.errors?.['required']">La carta d'identità è obbligatoria</div>
+      <div *ngIf="registerForm.get('cartaIdentita_id')?.errors?.['minlength']">La carta d'identità deve avere almeno 8 caratteri</div>
+      <div *ngIf="registerForm.get('cartaIdentita_id')?.errors?.['maxlength']">La carta d'identità deve avere massimo 9 caratteri</div>
+      <div *ngIf="registerForm.get('cartaIdentita_id')?.errors?.['pattern']">El número de documento es incorrecto</div>
     </div>
+  
+    <!--dirección-->
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
-        <label htmlFor="inputIndirizzo" class="form-label mt-4">Indirizzo</label>
+        <label htmlFor="inputIndirizzo" class="form-label">Indirizzo</label>
       </span>
       <input
         type="text"

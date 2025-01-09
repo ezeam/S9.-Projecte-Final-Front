@@ -29,5 +29,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## COMANDO para crear parquete que se sube a PRODUCCIÓN
 
 ng build --configuration=production
+
+`Entornos:`
 environment.prod.ts -> Tiene la URL productiva
 environment.ts -> Tiene la URL de desarrollo local

@@ -1,79 +1,82 @@
 <footer>
   <div class="footer container-fluid bg-primary pt-5 pb-5" id="footer">
-    <div class="container d-flex">
-      <div class="col-lg-3">
-        <div class="row align-items-center text-white py-3">      
+    <div class="container d-flex flex-column flex-lg-row justify-content-between">
+      <!-- Logo -->
+      <div class="col-lg-3 mb-4 mb-lg-0 text-center text-lg-start">
+        <img
+          loading="lazy"
+          class="img-fluid"
+          src="img/combo.png"
+          alt="Educare in positivo partner"
+          width="325"
+          height="113"
+        />
+      </div>
+      <!-- Email -->
+      <div class="col-lg-3 mb-4 mb-lg-0 text-center text-lg-end">
+        <a
+          class="text-white nav-link d-inline"
+          href="mailto:info@educareinpositivo.com"
+        >
+          info&#64;educareinpositivo.com
+        </a>
+      </div>
+      <!-- Social Icons -->
+      <div class="col-lg-2 mb-4 mb-lg-0 text-center text-lg-end">
+        <a
+          class="ms-3 me-3"
+          href="https://www.instagram.com/educareinpositivo/"
+          target="_blank"
+        >
           <img
             loading="lazy"
-            class="img-fluid mt-4 mt-lg-0"
-            src="img/combo.png"
-            alt="Educare in positivo partner"
-            width="325"
-            height="113"
+            src="icon/icon-facebook-white.svg"
+            alt="educare in positivo facebook"
+            width="30"
+            height="30"
+            class="social-icon"
           />
-        </div>
+        </a>
+        <a
+          class="ms-3 me-3"
+          href="https://es-la.facebook.com/nuni.nuni.5203577"
+          target="_blank"
+        >
+          <img
+            loading="lazy"
+            src="icon/icon-instagram-white.svg"
+            alt="educare in positivo instagram"
+            width="30"
+            height="30"
+            class="social-icon"
+          />
+        </a>
       </div>
-      <div class="col-lg-3 text-end"> 
-        <div class="row text-white pt-4">
-          <a
-            class="text-white nav-link mb-4 mb-lg-0 d-inline"
-            href="mailto:info@educareinpositivo.com"
-          >
-            info&#64;educareinpositivo.com
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-2 text-end"> 
-        <div class="text-white pt-4">
-          <a
-            class="ms-3 me-3"
-            href="https://www.instagram.com/educareinpositivo/"
-            target="_blank"
-          >
-            <img
-              loading="lazy"
-              src="icon/icon-facebook-white.svg"
-              alt="educare in positivo facebook"
-              width="30"
-              height="30"
-              class="social-icon"
-            />
-          </a>
-          <a
-            class="ms-3 me-3"
-            href="https://es-la.facebook.com/nuni.nuni.5203577"
-            target="_blank"
-          >
-            <img
-              loading="lazy"
-              src="icon/icon-instagram-white.svg"
-              alt="educare in positivo instagram"
-              width="30"
-              height="30"
-              class="social-icon"
-            />
-          </a>
-        </div>
-      </div>
+      <!-- Policies -->
       <div class="col-lg-4 text-center">
-        <div class="row text-white pt-4">
-          <a
-            class="nav-link text-white mb-2"
-            [routerLink]="['/privacy-policy']"
-          >Privacy policy</a>
-          <a
-            class="nav-link text-white mb-2"
-            [routerLink]="['/cookie-policy']"
-          >Cookie policy</a>
-        </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col text-center">
-        <span class="text-muted">© 2024 Educare in Positivo. Tutti i diritti riservati.</span>
+        <a
+          class="nav-link text-white mb-2"
+          [routerLink]="['/privacy-policy']"
+        >
+          Privacy policy
+        </a>
+        <a
+          class="nav-link text-white mb-2"
+          [routerLink]="['/cookie-policy']"
+        >
+          Cookie policy
+        </a>
       </div>
     </div>
-  </div>
+    <!-- Footer Bottom -->
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col text-center">
+          <span class="text-muted">
+            © 2024 Educare in Positivo. Tutti i diritti riservati.
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
