@@ -1,5 +1,6 @@
 <div class="card container-fluid col-10 col-md-9 col-lg-7 col-xl-5 col-xxl-4 mt-5 mb-5">
   <form [formGroup]="registerForm" (ngSubmit)="register()">
+
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
         <label htmlFor="inputNombre" class="form-label mt-4">Nome</label>
@@ -18,12 +19,13 @@
       @if(registerForm.get('name')?.invalid &&
       registerForm.get('name')?.touched) {
       <div class="text-danger">
-        @if(registerForm.get('name')?.errors?.['required']) { Il nome è obbligatorio } 
-        @if(registerForm.get('name')?.errors?.['minlength']) { Il nome deve essere lungo almeno 3 caratteri }
-        @if(registerForm.get('name')?.errors?.['pattern']) { Sono ammesse solo lettere}
+        @if(registerForm.get('name')?.errors?.['required']) { Il nome è obbligatorio. } 
+        @if(registerForm.get('name')?.errors?.['minlength']) { Il nome deve essere lungo almeno 3 caratteri. }
+        @if(registerForm.get('name')?.errors?.['pattern']) { Sono ammesse solo lettere. }
       </div>
       }
     </div>
+
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
         <label htmlFor="inputApellidos" class="form-label">Cognome</label>
@@ -42,14 +44,40 @@
       @if(registerForm.get('surname')?.invalid &&
       registerForm.get('surname')?.touched) {
       <div class="text-danger">
-        @if(registerForm.get('surname')?.errors?.['required']) { Il cognome è obbligatorio } 
-        @if(registerForm.get('surname')?.errors?.['minlength']) { Il cognome deve essere lungo almeno 3 caratteri }
-        @if(registerForm.get('surname')?.errors?.['pattern']) { Sono ammesse solo lettere }
+        @if(registerForm.get('surname')?.errors?.['required']) { Il cognome è obbligatorio. } 
+        @if(registerForm.get('surname')?.errors?.['minlength']) { Il cognome deve essere lungo almeno 3 caratteri. }
+        @if(registerForm.get('surname')?.errors?.['pattern']) { Sono ammesse solo lettere. }
       </div>
       }
     </div>
 
-    <!-- id, dni, carta identitare-->   
+    <div class="mb-3">
+      <span class="d-flex justify-content-center mb-1">
+        <label htmlFor="inputNombre" class="form-label">Documento d’Identità</label>
+      </span>
+      <input
+        type="text"
+        class="form-control"
+        id="inputDNI"
+        formControlName="dni"
+        [ngClass]="{
+          'is-invalid':
+            registerForm.get('dni')?.invalid &&
+            registerForm.get('dni')?.touched
+        }"
+      />
+      @if(registerForm.get('dni')?.invalid &&
+      registerForm.get('dni')?.touched) {
+      <div class="text-danger" *ngIf="registerForm.get('dni')?.invalid && registerForm.get('dni')?.touched">
+        <div *ngIf="registerForm.get('dni')?.errors?.['required']">La carta d'identità è obbligatoria.</div>
+        <div *ngIf="registerForm.get('dni')?.errors?.['minlength']">La carta d'identità deve avere almeno 9 caratteri.</div>
+        <div *ngIf="registerForm.get('dni')?.errors?.['maxlength']">Deve essere lungo massimo 9 caratteri.</div>
+        <div *ngIf="registerForm.get('dni')?.errors?.['pattern']">Il numero del documento è errato.</div>
+      </div>
+      }
+    </div>
+  
+    <!-- multiselector con diferentes ids
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
         <label htmlFor="inputId" class="form-label">Tipo de documento (tra)</label>
@@ -79,8 +107,8 @@
       <div *ngIf="registerForm.get('cartaIdentita_id')?.errors?.['maxlength']">La carta d'identità deve avere massimo 9 caratteri</div>
       <div *ngIf="registerForm.get('cartaIdentita_id')?.errors?.['pattern']">El número de documento es incorrecto</div>
     </div>
-  
-    <!--dirección-->
+    -->
+
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
         <label htmlFor="inputIndirizzo" class="form-label">Indirizzo</label>
@@ -92,17 +120,20 @@
         formControlName="address"
         [ngClass]="{
           'is-invalid':
-            registerForm.get('Indirizzo')?.invalid &&
-            registerForm.get('Indirizzo')?.touched
+            registerForm.get('address')?.invalid &&
+            registerForm.get('address')?.touched
         }"
       />
-      @if(registerForm.get('Indirizzo')?.invalid &&
-      registerForm.get('Indirizzo')?.touched) {
+      @if(registerForm.get('address')?.invalid &&
+      registerForm.get('address')?.touched) {
       <div class="text-danger">
-        @if(registerForm.get('Indirizzo')?.errors?.['required']) { L'indirizzo è obbligatorio }
+        @if(registerForm.get('address')?.errors?.['required']) { L'indirizzo è obbligatorio. }
+        @if(registerForm.get('address')?.errors?.['minlength']) { Deve essere lunga almeno 5 caratteri. }
+        @if(registerForm.get('address')?.errors?.['maxlength']) { Deve essere lungo massimo 100 caratteri. }
       </div>
       }
     </div>
+
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
         <label htmlFor="inputEmail" class="form-label">Email</label>
@@ -121,35 +152,98 @@
       @if(registerForm.get('email')?.invalid &&
       registerForm.get('email')?.touched) {
       <div class="text-danger">
-        @if(registerForm.get('email')?.errors?.['required']) { L'email è obbligatoria } 
-        @if(registerForm.get('email')?.errors?.['email']) { L'email deve avere una struttura corretta }
+        @if(registerForm.get('email')?.errors?.['required']) { L'email è obbligatoria. } 
+        @if(registerForm.get('email')?.errors?.['email']) { L'email deve avere una struttura corretta. }
       </div>
       }
     </div>
+
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
         <label htmlFor="inputPassword" class="form-label">Password</label>
       </span>
-      <input
-        type="password"
-        class="form-control"
-        id="inputPassword"
-        formControlName="password"
-        [ngClass]="{
-          'is-invalid':
-            registerForm.get('password')?.invalid &&
-            registerForm.get('password')?.touched
-        }"
-      />
+      <div class="input-group">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          class="form-control"
+          id="inputPassword"
+          formControlName="password"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('password')?.invalid &&
+              registerForm.get('password')?.touched
+          }"
+        />
+        <button type="button" class="input-group-text" (click)="togglePasswordVisibility()">
+          <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+        </button>
+      </div>
       @if(registerForm.get('password')?.invalid &&
       registerForm.get('password')?.touched) {
+      <div class="text-danger">       
+        <div *ngIf="registerForm.get('password')?.errors?.['required']">La password è obbligatoria.</div>
+        <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Deve essere lunga almeno 5 caratteri.</div>
+        <div *ngIf="registerForm.get('password')?.errors?.['maxlength']">Deve essere lungo massimo 60 caratteri.</div>
+        <div *ngIf="registerForm.get('password')?.errors?.['pattern']"> Deve contenere almeno una lettera maiuscola e almeno 1 numero.</div>
+        <div *ngIf="registerForm.get('password')?.errors?.['passwordMismatch']">Le password non corrispondono.</div>
+      </div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <span class="d-flex justify-content-center mb-1">
+        <label htmlFor="inputRepeatPassword" class="form-label">Ripeti la password</label>
+      </span>
+      <div class="input-group">
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          class="form-control"
+          id="inputRepeatPassword"
+          formControlName="repeatPassword"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('repeatPassword')?.invalid &&
+              registerForm.get('repeatPassword')?.touched
+          }"
+        />
+        <button type="button" class="input-group-text" (click)="togglePasswordVisibility()">
+          <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+        </button>
+      </div>      
+      @if(registerForm.get('repeatPassword')?.invalid &&
+      registerForm.get('repeatPassword')?.touched) {
       <div class="text-danger">
-        @if(registerForm.get('password')?.errors?.['required']) { La password è obbligatoria }
-        @if(registerForm.get('password')?.errors?.['minlength']) {Deve essere lunga almeno 3 caratteri }
-        @if(registerForm.get('password')?.errors?.['pattern']) { Deve contenere almeno una lettera maiuscola e almeno 1 numero }
+        @if(registerForm.get('repeatPassword')?.errors?.['required']) { La ripetizione della password è obbligatoria }
+        @if(registerForm.get('repeatPassword')?.errors?.['passwordMismatch']) { Le password non corrispondono }
+      </div>
+      }
+    </div>
+
+    <div class="mb-3 bg-primary p-3 rounded">
+      <div class="form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="acceptTerms"
+          formControlName="acceptTerms"
+          [ngClass]="{
+            'is-invalid':
+              registerForm.get('acceptTerms')?.invalid &&
+              registerForm.get('acceptTerms')?.touched
+          }"
+        />
+        <label class="form-check-label text-white" for="acceptTerms">
+          Accetto i <a href="/privacy-policy" target="_blank" class="text-white text-decoration-underline">termini e condizioni</a>
+        </label>
+      </div>
+      @if(registerForm.get('acceptTerms')?.invalid &&
+      registerForm.get('acceptTerms')?.touched) {
+      <div class="text-danger">
+        È necessario accettare i termini e condizioni
       </div>
       }
     </div>    
+
     <span class="d-flex justify-content-center mb-3">
       <button type="submit" class="btn btn-primary me-3 px-3 py-2 border-2 shadow-sm">Registrati</button>
     </span>
@@ -160,5 +254,6 @@
         </div>
       </span>      
     }
+
   </form>
 </div>

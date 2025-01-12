@@ -2,9 +2,6 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ChiSonoComponent } from './components/chi-sono/chi-sono.component';
 import { DisciplinaPositivaComponent } from './components/disciplina-positiva/disciplina-positiva.component';
-/*import { PercorsoEducareComponent } from './components/percorso-educare/percorso-educare.component';
-import { SupportoPersonalizzatoComponent } from './components/supporto-personalizzato/supporto-personalizzato.component';
-import { WebinarComponent } from './components/webinar/webinar.component';*/
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { CookiePolicyComponent } from './cookie-policy/cookie-policy.component';
 import { LoginComponent } from './components/login/login.component';
@@ -13,6 +10,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { PercorsoEducareComponent } from './components/percorso-educare/percorso-educare.component';
 import { SupportoPersonalizzatoComponent } from './components/supporto-personalizzato/supporto-personalizzato.component';
 import { WebinarComponent } from './components/webinar/webinar.component';
+import { CalendlyComponent } from './components/calendly/calendly.component';
 
 /*
 export const routes: Routes = [
@@ -43,4 +41,5 @@ export const routes: Routes = [
   { path: 'cookie-policy', component: CookiePolicyComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'calendly', component: CalendlyComponent },
 ];

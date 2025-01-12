@@ -18,7 +18,7 @@ export class PercorsoEducareComponent implements OnInit {
 
   name: string | null = null;
   price: number | null = null;
-  serviceId: number = 1;
+  serviceId: number = 0;
 
   constructor(
     public paymentService: PaymentService, 
@@ -34,7 +34,7 @@ export class PercorsoEducareComponent implements OnInit {
   loadPrice() {
     this.paymentService.getServiceData().subscribe(
       (response: Service[]) => {
-        const servicioBuscado = response.find((servicio: Service) => servicio.id_service === 1);
+        const servicioBuscado = response.find((servicio: Service) => servicio.id_service === 0);
         if (servicioBuscado) {
           this.name = servicioBuscado.name_service;
           this.price = servicioBuscado.price_service;

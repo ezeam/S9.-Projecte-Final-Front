@@ -15,7 +15,7 @@ export class SupportoPersonalizzatoComponent implements OnInit{
 
   name: string | null = null;
   price: number | null = null;
-  serviceId: number = 2;
+  serviceId: number = 1;
 
   constructor (public paymentService: PaymentService) { }
 
@@ -27,7 +27,7 @@ export class SupportoPersonalizzatoComponent implements OnInit{
   loadPrice() {
     this.paymentService.getServiceData().subscribe(
       (response: Service[]) => { // Asegúrate de que 'response' sea de tipo 'Service[]'
-        const servicioBuscado = response.find((servicio: Service) => servicio.id_service === 2); // Busca por id_service
+        const servicioBuscado = response.find((servicio: Service) => servicio.id_service === 1); // Busca por id_service
         if (servicioBuscado) {
           this.name =  servicioBuscado.name_service;
           this.price = servicioBuscado.price_service; // Asigna el precio del servicio encontrado
