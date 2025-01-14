@@ -224,3 +224,8 @@
     }
   </form>
 </div>
+<app-alert-notification
+  [alertMessage]="alertMessage"
+  [alertStatus]="alertStatus"
+  (alertClosed)="onAlertClosed()"
+></app-alert-notification>

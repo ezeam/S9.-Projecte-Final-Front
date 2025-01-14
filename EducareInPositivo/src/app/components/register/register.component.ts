@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ import { AlertService } from '../../services/alert.service';
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit  {
   registerForm: FormGroup;
   errorMessage: string = '';
   showPassword = false;
@@ -24,7 +24,7 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService,
+    public alertService: AlertService,
     private router: Router,
   ) {
     this.registerForm = this.fb.group({
@@ -121,14 +121,19 @@ export class RegisterComponent {
       this.registerForm.markAllAsTouched();
       return;
     }
-
+  
     const credentials = this.registerForm.value;
-
+  
     this.authenticationService.register(credentials).subscribe({
       next: () => {
         this.errorMessage = '';                
         this.alertService.alertStatus = 'success';
         this.alertService.alertMessage = 'Registrazione completata con successo.';        
+  
+        // Actualiza los valores de alertMessage y alertStatus en el componente
+        this.alertMessage = this.alertService.alertMessage;
+        this.alertStatus = this.alertService.alertStatus;
+        
         this.router.navigate(['/']);         
       },
       error: (error) => {               
@@ -137,13 +142,36 @@ export class RegisterComponent {
           error?.error?.msg || 'Errore del server. Ci scusiamo per l’inconveniente, riprova più tardi.';
         console.error('Registration error:', error?.error?.msg);
         
-        this.router.navigate(['/']); // TO-DO: Cuando falle te quedas y muestras el mensaje de error
+        // Actualiza los valores de alertMessage y alertStatus en el componente
+        this.alertMessage = this.alertService.alertMessage;
+        this.alertStatus = this.alertService.alertStatus;
+        
+        // this.router.navigate(['/']); // TO-DO: Cuando falle te quedas y muestras el mensaje de error
       },      
-      complete: () => {
-        // console.log("alertStatus", this.alertService.alertStatus);
+      complete: () => {       
+        console.error('complete');
       },
     });
-  };
+  }
+  
+
+  // Gestión de las alertas
+  ngOnInit(): void {
+    if (this.alertService.alertMessage) {
+      this.alertMessage = this.alertService.alertMessage;
+      this.alertStatus = this.alertService.alertStatus;
+    }
+  }
+
+
+  dismissAlert(): void {
+    this.alertMessage = null;
+    this.alertService.alertStatus = null;
+    this.alertService.alertMessage = null;
+  }
+
+  onAlertClosed(): void {
+    this.alertMessage = null; 
+  }
 
 }
-
