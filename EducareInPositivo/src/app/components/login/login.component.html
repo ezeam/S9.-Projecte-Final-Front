@@ -42,5 +42,9 @@
     <a class="underline" [routerLink]="['/register']"> here</a>
   </div>  
 </div>
-
-
+<!--- MIRAR XQ AQUÍ HACE QUE LA ALERTA APAREZCA TODO EL RATOOO -->
+<app-alert-notification
+  [alertMessage]="alertMessage"
+  [alertStatus]="alertStatus"
+  (alertClosed)="onAlertClosed()"
+></app-alert-notification>

@@ -3,7 +3,6 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
 import { AlertNotificationComponent } from '../../alert-notification/alert-notification.component';
 import { AlertService } from '../../services/alert.service';
 
@@ -134,7 +133,7 @@ export class RegisterComponent implements OnInit  {
         this.alertMessage = this.alertService.alertMessage;
         this.alertStatus = this.alertService.alertStatus;
         
-        this.router.navigate(['/']);         
+        this.router.navigate(['/']);  //TO-DO: molaría que nos llevase a la página de productos, si alguien se ha registrado es para comprar, nop?       
       },
       error: (error) => {               
         this.alertService.alertStatus = 'failed';
@@ -145,15 +144,12 @@ export class RegisterComponent implements OnInit  {
         // Actualiza los valores de alertMessage y alertStatus en el componente
         this.alertMessage = this.alertService.alertMessage;
         this.alertStatus = this.alertService.alertStatus;
-        
-        // this.router.navigate(['/']); // TO-DO: Cuando falle te quedas y muestras el mensaje de error
       },      
       complete: () => {       
         console.error('complete');
       },
     });
-  }
-  
+  }  
 
   // Gestión de las alertas
   ngOnInit(): void {
@@ -161,17 +157,15 @@ export class RegisterComponent implements OnInit  {
       this.alertMessage = this.alertService.alertMessage;
       this.alertStatus = this.alertService.alertStatus;
     }
-  }
-
+  };
 
   dismissAlert(): void {
     this.alertMessage = null;
     this.alertService.alertStatus = null;
     this.alertService.alertMessage = null;
-  }
+  };
 
   onAlertClosed(): void {
     this.alertMessage = null; 
-  }
-
+  };
 }

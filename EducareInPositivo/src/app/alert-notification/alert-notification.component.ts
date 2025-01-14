@@ -30,7 +30,7 @@ export class AlertNotificationComponent implements OnChanges {
     clearTimeout(this.autoCloseTimeout); // Limpia cualquier temporizador previo
     this.autoCloseTimeout = setTimeout(() => {
       this.dismissAlert();
-    }, 7000); // 7 segundos
+    }, 12000); // 12 segundos
   }
 
   // Método para cerrar manualmente la alerta

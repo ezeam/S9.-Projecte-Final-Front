@@ -15,7 +15,7 @@ export class HeaderComponent {
   constructor(private router: Router, public authenticationService: AuthenticationService) { }
 
   logOut(){
-    localStorage.clear();
+    localStorage.clear(); 
     this.router.navigate(['/']);
     this.authenticationService.logout();
   }
