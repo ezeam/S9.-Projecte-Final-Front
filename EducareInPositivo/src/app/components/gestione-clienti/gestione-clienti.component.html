@@ -8,7 +8,7 @@
             <thead>
               <tr>
                 <th scope="col">Id</th>
-                <th scope="col">DNI</th>
+                <th scope="col">Documento</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
                 <th scope="col">Ciudad</th>
@@ -21,7 +21,7 @@
               @for(cliente of listaClientes; track cliente.id) {
                 <tr>
                   <th scope="row">{{cliente.id}}</th>
-                  <td>{{cliente.dni}}</td>
+                  <td>{{cliente.documentId}}</td>
                   <td>{{cliente.nombre}}</td>
                   <td>{{cliente.apellido}}</td>
                   <td>{{cliente.ciudad}}</td>

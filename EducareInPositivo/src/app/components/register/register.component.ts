@@ -3,12 +3,14 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+
+import { AlertNotificationComponent } from '../../alert-notification/alert-notification.component';
 import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, CommonModule],
+  imports: [ReactiveFormsModule, FormsModule, CommonModule, AlertNotificationComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -16,6 +18,8 @@ export class RegisterComponent {
   registerForm: FormGroup;
   errorMessage: string = '';
   showPassword = false;
+  alertMessage: string | null = null;
+  alertStatus: 'success' | 'failed' | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -36,11 +40,11 @@ export class RegisterComponent {
         Validators.maxLength(50), 
         Validators.pattern('^[a-zA-Z ]*$')
       ]],
-      dni: ['', [
+      documentId: ['', [
         Validators.required, 
         Validators.minLength(9), 
-        Validators.maxLength(20), 
-        Validators.pattern('^[a-zA-Z0-9 ]*$')
+        Validators.maxLength(16), 
+        // Validators.pattern(/^(?=.*[A-Za-z])[A-Za-z0-9]{9,16}$/)
       ]],      
       address: ['', [
         Validators.required,
@@ -54,9 +58,9 @@ export class RegisterComponent {
       ]],
       password: ['', [
         Validators.required, 
-        Validators.minLength(5),
+        Validators.minLength(7),
         Validators.maxLength(60),        
-        Validators.pattern('(?=.*[A-Z]).{4,}$'),
+        Validators.pattern('(?=.*[A-Z])(?=.*\\d).{7,}$'),
         this.passwordMatchValidator()
       ]],
       repeatPassword:  [
@@ -132,7 +136,8 @@ export class RegisterComponent {
         this.alertService.alertMessage = 
           error?.error?.msg || 'Errore del server. Ci scusiamo per l’inconveniente, riprova più tardi.';
         console.error('Registration error:', error?.error?.msg);
-        // this.router.navigate(['/']); TO-DO: Cuando falle te quedas y muestras el mensaje de error
+        
+        this.router.navigate(['/']); // TO-DO: Cuando falle te quedas y muestras el mensaje de error
       },      
       complete: () => {
         // console.log("alertStatus", this.alertService.alertStatus);
@@ -141,3 +146,4 @@ export class RegisterComponent {
   };
 
 }
+

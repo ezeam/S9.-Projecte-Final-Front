@@ -58,57 +58,25 @@
       <input
         type="text"
         class="form-control"
-        id="inputDNI"
-        formControlName="dni"
+        id="inputDocumentId"
+        formControlName="documentId"
         [ngClass]="{
           'is-invalid':
-            registerForm.get('dni')?.invalid &&
-            registerForm.get('dni')?.touched
+            registerForm.get('documentId')?.invalid &&
+            registerForm.get('documentId')?.touched
         }"
       />
-      @if(registerForm.get('dni')?.invalid &&
-      registerForm.get('dni')?.touched) {
-      <div class="text-danger" *ngIf="registerForm.get('dni')?.invalid && registerForm.get('dni')?.touched">
-        <div *ngIf="registerForm.get('dni')?.errors?.['required']">La carta d'identità è obbligatoria.</div>
-        <div *ngIf="registerForm.get('dni')?.errors?.['minlength']">La carta d'identità deve avere almeno 9 caratteri.</div>
-        <div *ngIf="registerForm.get('dni')?.errors?.['maxlength']">Deve essere lungo massimo 9 caratteri.</div>
-        <div *ngIf="registerForm.get('dni')?.errors?.['pattern']">Il numero del documento è errato.</div>
+      @if(registerForm.get('documentId')?.invalid &&
+      registerForm.get('documentId')?.touched) {
+      <div class="text-danger" *ngIf="registerForm.get('documentId')?.invalid && registerForm.get('documentId')?.touched">
+        <div *ngIf="registerForm.get('documentId')?.errors?.['required']">Il documento d'identità è obbligatoria.</div>
+        <div *ngIf="registerForm.get('documentId')?.errors?.['minlength']">Il documento deve avere almeno 9 caratteri.</div>
+        <div *ngIf="registerForm.get('documentId')?.errors?.['maxlength']">Deve essere lungo massimo 16 caratteri.</div>
+        <div *ngIf="registerForm.get('documentId')?.errors?.['pattern']">Il numero del documento è errato.</div>
       </div>
       }
     </div>
   
-    <!-- multiselector con diferentes ids
-    <div class="mb-3">
-      <span class="d-flex justify-content-center mb-1">
-        <label htmlFor="inputId" class="form-label">Tipo de documento (tra)</label>
-      </span>
-      <div class="d-flex flex-column flex-sm-row justify-content-between">
-          <select class="form-select w-100 w-sm-50" id="documento" aria-label="Seleccionar tipo de documento (tra)">
-              <option value="cartaIdentita_id" selected>Carta d'Identità</option>
-              <option value="dni_id">DNI</option>
-          </select>
-          <input
-              type="text"
-              class="form-control w-100 w-sm-50 ms-0 ms-sm-3"
-              id="inputId"
-              placeholder="Número de documento (tra)"
-              formControlName="cartaIdentita_id"
-              [ngClass]="{
-                  'is-invalid':
-                  registerForm.get('cartaIdentita_id')?.invalid &&
-                  registerForm.get('cartaIdentita_id')?.touched
-              }"
-          />
-      </div>
-    </div>    
-    <div class="text-danger" *ngIf="registerForm.get('cartaIdentita_id')?.invalid && registerForm.get('cartaIdentita_id')?.touched">
-      <div *ngIf="registerForm.get('cartaIdentita_id')?.errors?.['required']">La carta d'identità è obbligatoria</div>
-      <div *ngIf="registerForm.get('cartaIdentita_id')?.errors?.['minlength']">La carta d'identità deve avere almeno 8 caratteri</div>
-      <div *ngIf="registerForm.get('cartaIdentita_id')?.errors?.['maxlength']">La carta d'identità deve avere massimo 9 caratteri</div>
-      <div *ngIf="registerForm.get('cartaIdentita_id')?.errors?.['pattern']">El número de documento es incorrecto</div>
-    </div>
-    -->
-
     <div class="mb-3">
       <span class="d-flex justify-content-center mb-1">
         <label htmlFor="inputIndirizzo" class="form-label">Indirizzo</label>
@@ -175,14 +143,14 @@
           }"
         />
         <button type="button" class="input-group-text" (click)="togglePasswordVisibility()">
-          <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+          <i class="bi" [ngClass]="showPassword ? 'bi-eye' : 'bi-eye-slash'"></i>
         </button>
       </div>
       @if(registerForm.get('password')?.invalid &&
       registerForm.get('password')?.touched) {
       <div class="text-danger">       
         <div *ngIf="registerForm.get('password')?.errors?.['required']">La password è obbligatoria.</div>
-        <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Deve essere lunga almeno 5 caratteri.</div>
+        <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Deve essere lunga almeno 7 caratteri.</div>
         <div *ngIf="registerForm.get('password')?.errors?.['maxlength']">Deve essere lungo massimo 60 caratteri.</div>
         <div *ngIf="registerForm.get('password')?.errors?.['pattern']"> Deve contenere almeno una lettera maiuscola e almeno 1 numero.</div>
         <div *ngIf="registerForm.get('password')?.errors?.['passwordMismatch']">Le password non corrispondono.</div>
@@ -207,7 +175,7 @@
           }"
         />
         <button type="button" class="input-group-text" (click)="togglePasswordVisibility()">
-          <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+          <i class="bi" [ngClass]="showPassword ? 'bi-eye ' : 'bi-eye-slash'"></i>
         </button>
       </div>      
       @if(registerForm.get('repeatPassword')?.invalid &&
@@ -254,6 +222,5 @@
         </div>
       </span>      
     }
-
   </form>
 </div>

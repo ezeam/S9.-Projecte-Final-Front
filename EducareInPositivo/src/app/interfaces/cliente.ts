@@ -1,6 +1,6 @@
 export interface Cliente {
   id?: number;
-  dni: string;
+  documentId: string;
   nombre: string;
   apellido: string;
   ciudad: string;

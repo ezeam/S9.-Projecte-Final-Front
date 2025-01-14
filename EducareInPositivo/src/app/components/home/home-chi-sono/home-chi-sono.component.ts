@@ -2,9 +2,9 @@ import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common'; 
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertNotificationComponent } from '../../../alert-notification/alert-notification.component';
 import { BtnChiamataComponent } from '../../btn-chiamata/btn-chiamata.component';
 
+import { AlertNotificationComponent } from '../../../alert-notification/alert-notification.component';
 import { AlertService } from '../../../services/alert.service';
 
 @Component({
@@ -23,16 +23,11 @@ export class HomeChiSonoComponent implements OnInit {
     public alertService: AlertService
   ){}
 
+  // Gestión de las alertas
   ngOnInit(): void {
     if (this.alertService.alertMessage) {
       this.alertMessage = this.alertService.alertMessage;
       this.alertStatus = this.alertService.alertStatus;
-
-      /*
-      setTimeout(() => {
-        this.dismissAlert();
-      }, 5000); // Ocultar el mensaje en 5 segundos?
-      */
     }
   }
 
