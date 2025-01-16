@@ -11,35 +11,19 @@ import { PercorsoEducareComponent } from './components/percorso-educare/percorso
 import { SupportoPersonalizzatoComponent } from './components/supporto-personalizzato/supporto-personalizzato.component';
 import { WebinarComponent } from './components/webinar/webinar.component';
 import { CalendlyComponent } from './components/calendly/calendly.component';
-
-/*
-export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'chi-sono', component: ChiSonoComponent }, 
-  { path: 'disciplina-positiva', component: DisciplinaPositivaComponent }, 
-  { path: 'percorso-educare', component: PercorsoEducareComponent },
-  { path: 'supporto-personalizzato', component: SupportoPersonalizzatoComponent },
-  { path: 'webinar', component: WebinarComponent },
-  { path: 'privacy-policy', component: PrivacyPolicyComponent}, 
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'calendar', component: CalendarComponent },
-];
-*/
+import { AuthGuard } from './guards/auth.guard'; // Importa el Guard
 
 export const routes: Routes = [
-  // { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: '', component: HomeComponent },  // Carga el HomeComponent en la raíz
-  { path: 'chi-sono', component: ChiSonoComponent },  
+  { path: '', component: HomeComponent },
+  { path: 'chi-sono', component: ChiSonoComponent },
   { path: 'disciplina-positiva', component: DisciplinaPositivaComponent },
-  { path: 'products', component: ProductsComponent},
+  { path: 'products', component: ProductsComponent },
   { path: 'percorso-educare', component: PercorsoEducareComponent },
   { path: 'supporto-personalizzato', component: SupportoPersonalizzatoComponent },
   { path: 'webinar', component: WebinarComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'cookie-policy', component: CookiePolicyComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] }, // Protección con el Guard
+  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'calendly', component: CalendlyComponent },
 ];
